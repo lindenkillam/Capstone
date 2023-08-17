@@ -9,6 +9,9 @@ TagManager:
   - DeckWalls
   - DeckOuterWalls
   - TempDeckOuterWalls
+  - DeckInnerWalls
+  - TempDeckInnerWalls
+  - DeckInterior
   layers:
   - Default
   - TransparentFX
