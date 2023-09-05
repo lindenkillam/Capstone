@@ -1323,6 +1323,7 @@ GameObject:
   - component: {fileID: 86813480}
   - component: {fileID: 86813481}
   - component: {fileID: 86813482}
+  - component: {fileID: 86813483}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1389,7 +1390,7 @@ Transform:
   m_GameObject: {fileID: 86813475}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 1.4, z: 24.4}
+  m_LocalPosition: {x: 0, y: 1.45, z: 24.4}
   m_LocalScale: {x: 1, y: 1.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1460,6 +1461,32 @@ CapsuleCollider:
   m_Radius: 0.5
   m_Height: 1
   m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!143 &86813483
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86813475}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.0000001
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &97829317
 GameObject:
@@ -10478,7 +10505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a91ce300a2a94f50ab833ea3e853538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 10
+  runSpeed: 1
   rotateSpeed: 120
   player: {fileID: 86813480}
 --- !u!4 &840954225
