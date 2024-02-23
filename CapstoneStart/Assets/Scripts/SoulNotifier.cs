@@ -11,6 +11,7 @@ public class SoulNotifier : MonoBehaviour
         {
             if(this.CompareTag("TrueBeliever") && OnTrueBelieverCaptured != null) //Check whether anyone is subscribed to the event
             {
+                Debug.Log("True Believer Text Message");
                 OnTrueBelieverCaptured(); //Run the event on all subscribers
             }
 

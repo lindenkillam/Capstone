@@ -15975,7 +15975,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 3
+  m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &8700022006916888908
@@ -15990,7 +15990,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00f616e33df46488fa8b54ecc92d7a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   TBSound: {fileID: 8486469365326221824}
 --- !u!82 &8486469365326221824
 AudioSource:
