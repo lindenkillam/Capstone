@@ -12,6 +12,13 @@ TagManager:
   - DeckInnerWalls
   - TempDeckInnerWalls
   - DeckInterior
+  - TrueBeliever
+  - BlueKey
+  - RedKey
+  - YellowKey
+  - YellowWall
+  - BlueWall
+  - RedWall
   layers:
   - Default
   - TransparentFX
@@ -19,8 +26,8 @@ TagManager:
   - SolidObjects
   - Water
   - UI
-  - 
-  - 
+  - Key
+  - SpecialWall
   - 
   - 
   - 
