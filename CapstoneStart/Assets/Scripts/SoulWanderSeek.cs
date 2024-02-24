@@ -72,7 +72,7 @@ public class SoulWanderSeek : MonoBehaviour
     {
         float distance = (player.transform.position - this.transform.position).magnitude;
   
-        Vector3 direction = (player.transform.position+Vector3.up) - (this.transform.position + Vector3.up);
+        Vector3 direction = (player.transform.position + Vector3.up) - (this.transform.position + Vector3.up);
         Ray ray = new Ray(this.transform.position + Vector3.up, direction);
         Debug.DrawRay(this.transform.position + Vector3.up, direction, Color.red);
 

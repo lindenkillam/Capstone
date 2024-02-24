@@ -1,0 +1,57 @@
+Version 1.1.17
+--------------
+* Normal maps support
+* Segmentation voting
+* Color correction parameters in shaders (HSV)
+* "Hide" checkbox for individual segmented materials
+* Tetavi sync (beta)
+* better-organized Material Segmentation
+* 27 Segments support for material segmentation
+* Tetavi Shaders reorganized under "Tetavi" category folder
+
+Version 1.1.16
+--------------
+* fixed streaming green/purple texture issue
+* IL2CPP streaming capable
+* Transparent material added
+* tet can now be downloaded from dropbox at runtime
+* "Change tet" api added
+* added simple ui for changing tet at runtime and changing material
+Version 1.1.15
+--------------
+* IL2CPP capable
+* AR core & AR Foundation capable
+Version 1.1.14
+--------------
+* Some renaming of fies
+* Inpector UI refinement
+* Built a unitypackage
+
+Version 1.1.13
+--------------
+* Upgrade Unity version to Release 2021.2.0b15   (it is beta but required for iOS/Mac)
+* Mac plugin-bundle is notarized to avoid the need to "white list" the plugin
+* Fixed: iOS/Mac texture unsync
+* iOS/Mac plugin-bundle into the Tetavi Player
+* Stage with materials added to the scene
+* Lit sample updated with improved material segmentation
+* In the inspector: frame bar with other preview attributes
+* No need to "touch" inspector-frame-bar for updating display after material changes
+* In the inspector: Debug printing is false by default
+
+Version 1.1.12
+--------------
+* Upgrade Unity version to LTS Release 2020.3.18f1
+* Fixed: iOS/Mac audio wrong speed
+* Lit shader using Classified Material Information
+* Solved bug: Android sound crashes if project name is changed
+
+Version 1.0.11
+--------------
+* Fix streaming, now works also with audio
+* Known bug: On Android, in long streaming clips, the textures have strange tones after about 40 sec.
+
+Version 1.0.10
+--------------
+* Upgrade Unity version to 2020.3.3f1 LTS
+* Allow to switch platfom to Android and still Play on Windows Unity Editor
