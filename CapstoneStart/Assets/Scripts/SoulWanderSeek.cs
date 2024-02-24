@@ -10,14 +10,14 @@ public class SoulWanderSeek : MonoBehaviour
     private Vector3 nextLocation;
     private float wanderDistance = 15f;
     private float seeDistance = 20f;
-    public GameObject player;
+    private GameObject player;
     public AudioSource TBSound;
     private bool soundActivated = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        //player = GameObject.FindWithTag("Player");
+        player = GameObject.FindWithTag("Player");
         nextLocation = this.transform.position;
         navAgent = this.GetComponent<NavMeshAgent>();
     }
@@ -80,7 +80,7 @@ public class SoulWanderSeek : MonoBehaviour
         {
             if (hit.collider.gameObject == player)
             {
-                Debug.Log("Player found by "+gameObject.name);
+                //Debug.Log("Player found by " + gameObject.name);
                 return true;
             }
         }

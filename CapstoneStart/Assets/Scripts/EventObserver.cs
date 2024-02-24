@@ -34,9 +34,7 @@ public class EventObserver : MonoBehaviour
         newHaunting.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f); // anchor at center
         newHaunting.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f); // pivot at center
 
-        //bool left = Random.Range(0, 2) == 1;
-
-        if(Random.Range(0, 2) == 1)
+        if(Random.Range(0, 2) >= 1)
             newHaunting.GetComponent<RectTransform>().anchoredPosition =
                 new Vector2(Random.Range(-1080, -240), Random.Range(-400,400)); // Position on left side
         else

@@ -17,6 +17,8 @@ public class PlayerMovement : MonoBehaviour
     bool yellowKeyCollected = false;
     bool blueKeyCollected = false;
     bool redKeyCollected = false;
+    bool blueKeySpawned = false;
+    bool redKeySpawned = false;
     public GameObject yellowWall, blueWall, redWall;
     public GameObject blueKey, redKey;
     public GameObject textPrefab;
@@ -76,19 +78,21 @@ public class PlayerMovement : MonoBehaviour
 
                 //logDestroy(hit, true);
                 Debug.Log(hit.transform.name);
-                Destroy (hit.collider.gameObject);
+                Destroy(hit.collider.gameObject);
                 //hit.transform.GetComponent<Renderer>().material.color = Color.white;
             }
             else if(Physics.Raycast(ray, out hit, 20, specialWallLayer) && yellowKeyCollected)
             {
                 //if(hit.collider.GameObject == yellowWall)
-                if(hit.transform.CompareTag("YellowWall"))
+                if(hit.transform.CompareTag("YellowWall") && !blueKeySpawned)
                 {
                     Instantiate(blueKey, yellowWall.transform.position + new Vector3(-0.5f,0.5f,0f), Quaternion.identity);
+                    blueKeySpawned = true;
                 }
-                else if(hit.transform.CompareTag("BlueWall") && blueKeyCollected)
+                else if(hit.transform.CompareTag("BlueWall") && blueKeyCollected && !redKeySpawned)
                 {
                     Instantiate(redKey, blueWall.transform.position + new Vector3(0.5f,0.5f,0f), Quaternion.identity);
+                    redKeySpawned = true;
                 }
                 else if(hit.transform.CompareTag("RedWall") && redKeyCollected)
                 {
