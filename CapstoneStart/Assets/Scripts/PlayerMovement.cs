@@ -8,10 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
     public float speed = 8f;
     public float gravity = -9.81f;
+
+    Vector3 velocity;
     public Transform groundCheck;
     public float groundDistance = 1f;
     public LayerMask groundMask;
-    Vector3 velocity;
     public LayerMask keyLayer, specialWallLayer;
     bool isGrounded = true;
     bool yellowKeyCollected = false;
