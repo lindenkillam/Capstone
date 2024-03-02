@@ -20,7 +20,8 @@ public class GameManager : MonoBehaviour
 
     public string[] SadBoiQuotes = {"Why haven't they come back...", "Why is the Institute programming failing me...",
         "I never made it to Ascended, but at least I was saving the planet.", "I didn't get to travel, but at least I was saving the planet.",
-        "How in hell did all of my children abandon me for an unclean life!!", "I was promised total freedom and all I got was this?!"};
+        "How in hell did all of my children abandon me for an unclean life!!", "I was promised total freedom and all I got was this?!",
+        "I never made it... Why, Hoffman?", "The programming never worked for me, but it was only me...", "I still haven't achieved Godhood."};
 
     //public int numTBQuotes = TrueBelieverQuotes.Length;
 

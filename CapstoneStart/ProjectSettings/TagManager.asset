@@ -19,6 +19,7 @@ TagManager:
   - YellowWall
   - BlueWall
   - RedWall
+  - SadBoi
   layers:
   - Default
   - TransparentFX
@@ -29,7 +30,7 @@ TagManager:
   - Key
   - SpecialWall
   - Note
-  - 
+  - Enemy
   - 
   - 
   - 

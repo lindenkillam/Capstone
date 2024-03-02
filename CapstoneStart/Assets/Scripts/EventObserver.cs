@@ -7,13 +7,12 @@ public class EventObserver : MonoBehaviour
 {
     public GameManager gm;
     public Canvas canvas;
-
     public GameObject textPrefab;
 
     void Start()
     {
         SoulNotifier.OnTrueBelieverCaptured += TrueBelieverCaptured;
-        //TrueBelieverCaptured();
+        SoulNotifier.OnSadBoiCaptured += SadBoiCaptured;
     }
 
     private void TrueBelieverCaptured()
@@ -24,34 +23,43 @@ public class EventObserver : MonoBehaviour
         }
     }
 
+    private void SadBoiCaptured()
+    {
+        for(byte i = 0; i < 6; ++i)
+        {
+            InstantiateSBText();
+        }
+    }
+
     private void InstantiateTBText()
     {
         int quoteNum = Random.Range(0, gm.TrueBelieverQuotes.Length);
-        GameObject newHaunting = Instantiate(textPrefab, canvas.transform, false);
-        newHaunting.GetComponent<TextMeshProUGUI>().text = gm.TrueBelieverQuotes[quoteNum];
-            
-        newHaunting.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f); // anchor at center
-        newHaunting.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f); // anchor at center
-        newHaunting.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f); // pivot at center
+        GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
+        newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.TrueBelieverQuotes[quoteNum];
+        PositionText(newTextPrefab, quoteNum);
+    }
 
-        if(Random.Range(0, 2) >= 1)
-            newHaunting.GetComponent<RectTransform>().anchoredPosition =
-                new Vector2(Random.Range(-1080, -240), Random.Range(-400,400)); // Position on left side
+    private void InstantiateSBText()
+    {
+        int quoteNum = Random.Range(0, gm.SadBoiQuotes.Length);
+        GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
+        newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.SadBoiQuotes[quoteNum];
+        PositionText(newTextPrefab, quoteNum);
+    }
+
+    private void PositionText(GameObject newTextPrefab, int quoteNum)
+    {  
+        newTextPrefab.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f); // anchor at center
+        newTextPrefab.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f); // anchor at center
+        newTextPrefab.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f); // pivot at center
+
+        if(Random.Range(0, 2) == 1)
+            newTextPrefab.GetComponent<RectTransform>().anchoredPosition =
+                new Vector2(Random.Range(-900, -240), Random.Range(-400,400)); // Position on left side
         else
-            newHaunting.GetComponent<RectTransform>().anchoredPosition =
-                new Vector2(Random.Range(240, 1080), Random.Range(-400,400)); // Position on right side
+            newTextPrefab.GetComponent<RectTransform>().anchoredPosition =
+                new Vector2(Random.Range(240, 900), Random.Range(-400,400)); // Position on right side
         
-        Debug.Log(newHaunting.GetComponent<RectTransform>().anchoredPosition);
-        /*
-        quoteNum = Random.Range(0, gm.TrueBelieverQuotes.Length);
-        newHaunting = Instantiate(textPrefab, canvas.transform, false);
-        newHaunting.GetComponent<TextMeshProUGUI>().text = gm.TrueBelieverQuotes[quoteNum];
-            
-        newHaunting.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f); // anchor at center
-        newHaunting.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f); // anchor at center
-        newHaunting.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f); // pivot at center
-        newHaunting.GetComponent<RectTransform>().anchoredPosition =
-            new Vector2(Random.Range(157, 470), Random.Range(-287,287)); // Position on right side
-        */
+        Debug.Log(newTextPrefab.GetComponent<RectTransform>().anchoredPosition);
     }
 }
