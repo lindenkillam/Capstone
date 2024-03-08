@@ -7,12 +7,14 @@ public class EventObserver : MonoBehaviour
 {
     public GameManager gm;
     public Canvas canvas;
+
     public GameObject textPrefab;
 
     void Start()
     {
         SoulNotifier.OnTrueBelieverCaptured += TrueBelieverCaptured;
         SoulNotifier.OnSadBoiCaptured += SadBoiCaptured;
+        SoulNotifier.OnOverworkedCaptured += OverworkedCaptured;
     }
 
     private void TrueBelieverCaptured()
@@ -31,6 +33,14 @@ public class EventObserver : MonoBehaviour
         }
     }
 
+    private void OverworkedCaptured()
+    {
+        for(byte i = 0; i < 6; ++i)
+        {
+            InstantiateOWText();
+        }
+    }
+
     private void InstantiateTBText()
     {
         int quoteNum = Random.Range(0, gm.TrueBelieverQuotes.Length);
@@ -45,6 +55,14 @@ public class EventObserver : MonoBehaviour
         GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
         newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.SadBoiQuotes[quoteNum];
         PositionText(newTextPrefab, quoteNum);
+    }
+
+    private void InstantiateOWText()
+    {
+        int quoteNum = Random.Range(0, gm.OverworkedQuotes.Length);
+        GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
+        newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.OverworkedQuotes[quoteNum];
+        PositionText(newTextPrefab, quoteNum);        
     }
 
     private void PositionText(GameObject newTextPrefab, int quoteNum)

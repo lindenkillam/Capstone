@@ -15,7 +15,7 @@ public class SadBoiScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = this.GetComponent<AudioSource>();
         nextLocation = this.transform.position;
         navAgent = this.GetComponent<NavMeshAgent>();
     }

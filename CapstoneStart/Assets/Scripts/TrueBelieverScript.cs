@@ -11,16 +11,17 @@ public class TrueBelieverScript : MonoBehaviour
     private float wanderDistance = 15f;
     private float seeDistance = 20f;
     private GameObject player;
-    private AudioSource TBSound;
+    public AudioClip[] TrueBelieverSounds;
+    AudioSource audioSource;
     private bool soundActivated = false;
 
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         player = GameObject.FindWithTag("Player");
         nextLocation = this.transform.position;
         navAgent = this.GetComponent<NavMeshAgent>();
-        TBSound = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,7 +42,7 @@ public class TrueBelieverScript : MonoBehaviour
         if(soundActivated)
         {
             soundActivated = false;
-            TBSound.Stop();
+            audioSource.Stop();
         }
         //If close, choose next location
         if(navAgent.remainingDistance < 1f)
@@ -62,8 +63,11 @@ public class TrueBelieverScript : MonoBehaviour
     {
         if(!soundActivated)
         {
+            Debug.Log("TrueBeliverSound activated!");
             soundActivated = true;
-            TBSound.Play();
+            int i = Random.Range(0, TrueBelieverSounds.Length);
+            audioSource.clip = TrueBelieverSounds[i];
+            audioSource.Play();
         }
         if (navAgent.destination != player.transform.position)
             navAgent.SetDestination(player.transform.position);

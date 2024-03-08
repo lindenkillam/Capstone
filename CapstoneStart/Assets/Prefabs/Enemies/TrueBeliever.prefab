@@ -15968,6 +15968,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4157054cd5f944b689a2b2eac006e24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TrueBelieverSounds:
+  - {fileID: 8300000, guid: 08850d4cb1f554ec599ead99d40d0b5d, type: 3}
+  - {fileID: 8300000, guid: 0641e3b7476be4f4ca7b9073c2d17752, type: 3}
+  - {fileID: 8300000, guid: 8b1bfa8fbab664cd6abf8d93d886ef07, type: 3}
+  - {fileID: 8300000, guid: cd11a94a418a546cdac183e8f15996b8, type: 3}
 --- !u!195 &6310064494255877674
 NavMeshAgent:
   m_ObjectHideFlags: 0
