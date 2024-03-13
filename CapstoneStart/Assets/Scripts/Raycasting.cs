@@ -28,9 +28,16 @@ public class Raycasting : MonoBehaviour
         //Raycasting
         if(Input.GetMouseButtonDown(0))
         {
+            if(noteManager.isOpen)
+            {
+                noteManager.DisableNote();
+                return;
+            }
+
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, 10, noteLayer) && !noteManager.isOpen)
+
+            if(Physics.Raycast(ray, out hit, 10, noteLayer))
             {
                 var readableItem = hit.collider.GetComponent<NoteManager>();
                 if(readableItem != null)
@@ -39,11 +46,7 @@ public class Raycasting : MonoBehaviour
                     //Make an item aura, or highlight crosshair or something
                 }
 
-            noteManager.ShowNote();
-            }
-            else if(noteManager.isOpen)
-            {
-                noteManager.DisableNote();
+                noteManager.ShowNote();
             }
             else if(Physics.Raycast(ray, out hit, 20, keyLayer))
             {
