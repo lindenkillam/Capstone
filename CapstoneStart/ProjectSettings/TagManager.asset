@@ -20,6 +20,7 @@ TagManager:
   - BlueWall
   - RedWall
   - SadBoi
+  - Sound
   layers:
   - Default
   - TransparentFX
@@ -32,7 +33,7 @@ TagManager:
   - Note
   - Enemy
   - NoteUI
-  - 
+  - IgnoreLight
   - 
   - 
   - 
