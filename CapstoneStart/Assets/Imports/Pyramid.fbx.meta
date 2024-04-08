@@ -3,7 +3,57 @@ guid: 6b30f546837044230bf3fe5f01123d93
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pyramid_black
+    second: {fileID: 2100000, guid: 86ce204a773344a25a2da6a3f9e88d56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pyramid_gold
+    second: {fileID: 2100000, guid: edcfd1019396b47c0b58be1dd825577b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pyramid_green
+    second: {fileID: 2100000, guid: 450312809a7d845edb2ca8bc8b560646, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pyramid_plastic
+    second: {fileID: 2100000, guid: 7620a773bba194960accd41d9bdc52d3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pyramid_silver
+    second: {fileID: 2100000, guid: 789fdbbea35ff4cecac2caca870b5065, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pyramid_wood
+    second: {fileID: 2100000, guid: daab0f6f7f5e24cb4a79d685723117c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface1
+    second: {fileID: 2100000, guid: f07f00722236e4d22b2fb69856a26c62, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RedWood
+    second: {fileID: 2800000, guid: 1bdeda88734234710970d4ff88484ecb, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: RoughGold
+    second: {fileID: 2800000, guid: 68ce14a5f525048ecbe1a9023a0faab7, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: SilverTexture
+    second: {fileID: 2800000, guid: d7173815fa30446f485ee9d16c7df637, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -35,7 +85,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 22
+    globalScale: 20
     meshCompression: 0
     addColliders: 1
     useSRGBMaterialColor: 1
@@ -90,7 +140,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.22
+    globalScale: 0.19999999
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
