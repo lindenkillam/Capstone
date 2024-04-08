@@ -3,7 +3,37 @@ guid: e5a3c84837c724c0b896cd1ceada11ab
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: 057649ea847ed4a74824a29d934f2d45, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metallic
+    second: {fileID: 2100000, guid: 1b5c7d319a5f04dae912bd6e73f730c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood
+    second: {fileID: 2100000, guid: cea0ea6900a754e879a50c30e420cd9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface1
+    second: {fileID: 2100000, guid: fa593b6b2a0c447d181749ed78e6958e, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Metallic_plastic
+    second: {fileID: 2800000, guid: f5e88d237d0dd45da96c7012d89acfb6, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: wooden-textured-background_53876-14865
+    second: {fileID: 2800000, guid: bf35fd67b4e5b4b09adef627db2156cb, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -35,9 +65,9 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 400
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importPhysicalCameras: 1
@@ -90,7 +120,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 400
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
