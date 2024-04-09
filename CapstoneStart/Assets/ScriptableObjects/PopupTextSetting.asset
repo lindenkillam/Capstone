@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070b4c4beabe44c829d12c2d85dd7342, type: 3}
+  m_Name: PopupTextSetting
+  m_EditorClassIdentifier: 
+  damageTextAsset: {fileID: 11400000, guid: 81b35c795ce09497c9600da5814fae7c, type: 2}
+  healTextAsset: {fileID: 11400000, guid: 4366c92a33fcb420b89566681d3736e9, type: 2}
+  criticalDamageTextAsset: {fileID: 11400000, guid: 89d3ea3f37f444264bebaa00c560a987, type: 2}
