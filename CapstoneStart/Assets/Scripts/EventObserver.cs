@@ -73,10 +73,10 @@ public class EventObserver : MonoBehaviour
 
         if(Random.Range(0, 2) == 1)
             newTextPrefab.GetComponent<RectTransform>().anchoredPosition =
-                new Vector2(Random.Range(-900, -240), Random.Range(-400,400)); // Position on left side
+                new Vector2(Random.Range(-900, -240), Random.Range(-600,550)); // Position on left side
         else
             newTextPrefab.GetComponent<RectTransform>().anchoredPosition =
-                new Vector2(Random.Range(240, 900), Random.Range(-400,400)); // Position on right side
+                new Vector2(Random.Range(240, 900), Random.Range(-600,550)); // Position on right side
         
         Debug.Log(newTextPrefab.GetComponent<RectTransform>().anchoredPosition);
     }
