@@ -903,7 +903,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!1001 &2081308210
+--- !u!1001 &92755591308856133
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -911,140 +911,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 58839699519647291, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
+      propertyPath: m_Name
+      value: BabyDoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.63405013
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.25
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.36684096
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalRotation.y
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
+    - target: {fileID: 836221239906235521, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
-      propertyPath: m_Name
-      value: BabyDoll@Struggle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2081308214}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2081308213}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2081308212}
-  m_SourcePrefab: {fileID: 100100000, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
---- !u!1 &2081308211 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5c0cdfd052d414dedbcb5393da5cd651, type: 3}
-  m_PrefabInstance: {fileID: 2081308210}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2081308212
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081308211}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c175d508f71f84dbc84687f1045e449c, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!54 &2081308213
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081308211}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!136 &2081308214
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081308211}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.055, z: 0}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: eaeddc303aca843bcb85154be60c91a8, type: 3}
 --- !u!1001 &6153433428929433552
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1121,4 +1036,4 @@ SceneRoots:
   - {fileID: 140668429}
   - {fileID: 1735362069}
   - {fileID: 125081485}
-  - {fileID: 2081308210}
+  - {fileID: 92755591308856133}
