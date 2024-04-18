@@ -33,7 +33,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Walk
+      name: BabyDollWalk
       takeName: Walk
       internalID: 2667949614841947897
       firstFrame: 0

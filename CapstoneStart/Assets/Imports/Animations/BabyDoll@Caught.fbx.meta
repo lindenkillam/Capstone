@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6b30f546837044230bf3fe5f01123d93
+guid: 5c0cdfd052d414dedbcb5393da5cd651
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,38 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Pyramid_black
-    second: {fileID: 2100000, guid: 40b0207bdd78047f28dfea3a82db66bb, type: 2}
+      name: DollEyes_mat
+    second: {fileID: 2100000, guid: 19e9df17315304752b6914ec2f421c64, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Pyramid_green
-    second: {fileID: 2100000, guid: 327baf49abc8744bf840702239ad83aa, type: 2}
+      name: DollHead_mat
+    second: {fileID: 2100000, guid: 14ec433f2a87e43d79e44558e87d804d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Pyramid_leather
-    second: {fileID: 2100000, guid: 586566ce06aac4c7aad9f8bc893d544c, type: 2}
+      name: DollPants_mat
+    second: {fileID: 2100000, guid: 9ceff04fdfc1444be810372572f1e262, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Pyramid_plastic
-    second: {fileID: 2100000, guid: 0a3a759dbece1445196621aba2f29790, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pyramid_silver
-    second: {fileID: 2100000, guid: f2c0763a86b774b6484a6b006a4294ce, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Pyramid_wood
-    second: {fileID: 2100000, guid: 394dc8cba7d1e41fea94272ceaaa6c50, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: standardSurface1
-    second: {fileID: 5955844840416208063, guid: 1c1da1494fae6cd43ad8eefb535cc852, type: 3}
+      name: DollSkin_mat
+    second: {fileID: 2100000, guid: 0d786d42ffeb3442a8f8fe39545dcefa, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -68,18 +53,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: PyramidOpen
-      takeName: Take 001
-      internalID: 1827226128182048838
-      firstFrame: 1
-      lastFrame: 200
+      name: BabyDollCaught
+      takeName: Struggle
+      internalID: 1871406227984168697
+      firstFrame: 0
+      lastFrame: 120
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -95,11 +80,11 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 1
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 50
+    globalScale: 30
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -154,7 +139,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.5
+    globalScale: 30
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
