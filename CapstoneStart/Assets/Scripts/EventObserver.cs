@@ -7,6 +7,7 @@ public class EventObserver : MonoBehaviour
 {
     public GameManager gm;
     public Canvas canvas;
+    public TMP_FontAsset[] enemyFonts;
 
     public GameObject textPrefab;
 
@@ -19,7 +20,7 @@ public class EventObserver : MonoBehaviour
 
     private void TrueBelieverCaptured()
     {
-        for(byte i = 0; i < 6; ++i)
+        for(byte i = 0; i < 4; ++i)
         {
             InstantiateTBText();
         }
@@ -27,7 +28,7 @@ public class EventObserver : MonoBehaviour
 
     private void SadBoiCaptured()
     {
-        for(byte i = 0; i < 6; ++i)
+        for(byte i = 0; i < 4; ++i)
         {
             InstantiateSBText();
         }
@@ -35,7 +36,7 @@ public class EventObserver : MonoBehaviour
 
     private void OverworkedCaptured()
     {
-        for(byte i = 0; i < 6; ++i)
+        for(byte i = 0; i < 4; ++i)
         {
             InstantiateOWText();
         }
@@ -44,28 +45,34 @@ public class EventObserver : MonoBehaviour
     private void InstantiateTBText()
     {
         int quoteNum = Random.Range(0, gm.TrueBelieverQuotes.Length);
+        int fontNum = Random.Range(0, enemyFonts.Length);
         GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
+        newTextPrefab.GetComponent<TextMeshProUGUI>().font = enemyFonts[fontNum];
         newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.TrueBelieverQuotes[quoteNum];
-        PositionText(newTextPrefab, quoteNum);
+        PositionText(newTextPrefab);
     }
 
     private void InstantiateSBText()
     {
         int quoteNum = Random.Range(0, gm.SadBoiQuotes.Length);
+        int fontNum = Random.Range(0, enemyFonts.Length);
         GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
+        newTextPrefab.GetComponent<TextMeshProUGUI>().font = enemyFonts[fontNum];
         newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.SadBoiQuotes[quoteNum];
-        PositionText(newTextPrefab, quoteNum);
+        PositionText(newTextPrefab);
     }
 
     private void InstantiateOWText()
     {
         int quoteNum = Random.Range(0, gm.OverworkedQuotes.Length);
+        int fontNum = Random.Range(0, enemyFonts.Length);
         GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
+        newTextPrefab.GetComponent<TextMeshProUGUI>().font = enemyFonts[fontNum];
         newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.OverworkedQuotes[quoteNum];
-        PositionText(newTextPrefab, quoteNum);        
+        PositionText(newTextPrefab);        
     }
 
-    private void PositionText(GameObject newTextPrefab, int quoteNum)
+    private void PositionText(GameObject newTextPrefab)
     {  
         newTextPrefab.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f); // anchor at center
         newTextPrefab.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f); // anchor at center
@@ -78,6 +85,6 @@ public class EventObserver : MonoBehaviour
             newTextPrefab.GetComponent<RectTransform>().anchoredPosition =
                 new Vector2(Random.Range(240, 900), Random.Range(-600,550)); // Position on right side
         
-        Debug.Log(newTextPrefab.GetComponent<RectTransform>().anchoredPosition);
+        //Debug.Log(newTextPrefab.GetComponent<RectTransform>().anchoredPosition);
     }
 }
