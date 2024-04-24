@@ -5,7 +5,7 @@ using TMPro;
 
 public class EventObserver : MonoBehaviour
 {
-    public GameManager gm;
+    public QuoteManager qm;
     public Canvas canvas;
     public TMP_FontAsset[] enemyFonts;
 
@@ -44,31 +44,31 @@ public class EventObserver : MonoBehaviour
 
     private void InstantiateTBText()
     {
-        int quoteNum = Random.Range(0, gm.TrueBelieverQuotes.Length);
+        int quoteNum = Random.Range(0, qm.TrueBelieverQuotes.Length);
         int fontNum = Random.Range(0, enemyFonts.Length);
         GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
         newTextPrefab.GetComponent<TextMeshProUGUI>().font = enemyFonts[fontNum];
-        newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.TrueBelieverQuotes[quoteNum];
+        newTextPrefab.GetComponent<TextMeshProUGUI>().text = qm.TrueBelieverQuotes[quoteNum];
         PositionText(newTextPrefab);
     }
 
     private void InstantiateSBText()
     {
-        int quoteNum = Random.Range(0, gm.SadBoiQuotes.Length);
+        int quoteNum = Random.Range(0, qm.SadBoiQuotes.Length);
         int fontNum = Random.Range(0, enemyFonts.Length);
         GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
         newTextPrefab.GetComponent<TextMeshProUGUI>().font = enemyFonts[fontNum];
-        newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.SadBoiQuotes[quoteNum];
+        newTextPrefab.GetComponent<TextMeshProUGUI>().text = qm.SadBoiQuotes[quoteNum];
         PositionText(newTextPrefab);
     }
 
     private void InstantiateOWText()
     {
-        int quoteNum = Random.Range(0, gm.OverworkedQuotes.Length);
+        int quoteNum = Random.Range(0, qm.OverworkedQuotes.Length);
         int fontNum = Random.Range(0, enemyFonts.Length);
         GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
         newTextPrefab.GetComponent<TextMeshProUGUI>().font = enemyFonts[fontNum];
-        newTextPrefab.GetComponent<TextMeshProUGUI>().text = gm.OverworkedQuotes[quoteNum];
+        newTextPrefab.GetComponent<TextMeshProUGUI>().text = qm.OverworkedQuotes[quoteNum];
         PositionText(newTextPrefab);        
     }
 
