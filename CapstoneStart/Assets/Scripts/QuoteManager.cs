@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class QuoteManager : MonoBehaviour
 {
-    //[SerializeField]
-
     public string[] TrueBelieverQuotes = {"My son is a bad, evil man.", "I'm so sorry Hoffman...", 
         "Do the unclean know how to bathe themselves?", "Let me strike a blow for the Institute!",
         "Hoffman is Truth", "Join the rest of us...", "I am winning!", "I am now a God, like I always was.",

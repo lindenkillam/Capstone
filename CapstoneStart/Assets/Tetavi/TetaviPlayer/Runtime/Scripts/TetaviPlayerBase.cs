@@ -10,7 +10,6 @@ using static TetaviCAPI;
 using UnityEngine.Networking;
 using System.Threading;
 using System.Net;
-using System;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.Collections;
 
