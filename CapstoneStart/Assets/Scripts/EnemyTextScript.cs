@@ -8,7 +8,7 @@ public class EnemyTextScript : MonoBehaviour
 {
     // Start is called before the first frame update
     private TMP_Text thisText;
-    const float alphaMin = 0.25f;
+    const float alphaMin = 0.15f;
  
     private void Awake()
     {

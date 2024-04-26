@@ -9,8 +9,10 @@ public class SoulNotifier : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("I hit something, ouch.");
         if(other.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Someone collided with the player!");
             if(this.CompareTag("TrueBeliever") && OnTrueBelieverCaptured != null) //Check whether anyone is subscribed to the event
             {
                 OnTrueBelieverCaptured(); //Run the event on all subscribers

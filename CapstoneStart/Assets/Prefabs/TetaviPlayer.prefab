@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7de2028bbe0b0b45b7ba1c362767144, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clipFile: DancerLitWithMS.tet
+  clipFile: ...
   has_material_segmentation: 1
   isLit: 1
   isTetaviSunc: 0

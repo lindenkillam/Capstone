@@ -13,7 +13,7 @@ public class TrueBelieverScript : MonoBehaviour
     private GameObject player;
     public AudioClip[] TrueBelieverSounds;
     AudioSource audioSource;
-    private bool soundActivated = false;
+    //private bool soundActivated = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,6 @@ public class TrueBelieverScript : MonoBehaviour
     {
         if(audioSource.isPlaying)
         {
-            //soundActivated = false;
             audioSource.Stop();
         }
         //If close, choose next location
@@ -64,7 +63,6 @@ public class TrueBelieverScript : MonoBehaviour
         if(!audioSource.isPlaying)
         {
             Debug.Log("TrueBeliverSound activated!");
-            //soundActivated = true;
             int i = Random.Range(0, TrueBelieverSounds.Length);
             audioSource.clip = TrueBelieverSounds[i];
             audioSource.Play();

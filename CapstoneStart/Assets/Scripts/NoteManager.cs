@@ -11,12 +11,19 @@ public class NoteManager : MonoBehaviour
     [SerializeField] private TMP_Text noteTextAreaUI;
     [SerializeField] private UnityEvent openEvent;
     [SerializeField] [TextArea] private string noteText;
-    MouseLook mouseLook;
+    //[SerializeField] MouseLook mouseLook;
+    //[SerializeField] private AudioSource audioSource;
+
+    void Start()
+    {
+        //audioSource = this.GetComponent<AudioSource>();
+    }
 
     public void ShowNote()
     {
         noteTextAreaUI.text = noteText;
         noteCanvas.SetActive(true);
+        //audioSource.Play();
         openEvent.Invoke();
         //mouseLook.mouseSensitivity = 0f;
         player.enabled = false;
@@ -47,12 +54,9 @@ public class NoteManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isOpen)
+        if(Input.GetKeyDown(closeKey))
         {
-            if(Input.GetKeyDown(closeKey))
-            {
-                DisableNote();
-            }
+            DisableNote();
         }
     }
 }

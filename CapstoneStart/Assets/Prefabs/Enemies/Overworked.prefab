@@ -15200,8 +15200,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.75
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Radius: 1.25
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &8441883096765744541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15249,7 +15249,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 1
-  m_BaseOffset: 3
+  m_BaseOffset: 2
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!82 &8486469365326221824

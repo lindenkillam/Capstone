@@ -20,6 +20,7 @@ public class EventObserver : MonoBehaviour
 
     private void TrueBelieverCaptured()
     {
+        Debug.Log("TrueBeliever done.");
         for(byte i = 0; i < 4; ++i)
         {
             InstantiateTBText();
@@ -28,6 +29,7 @@ public class EventObserver : MonoBehaviour
 
     private void SadBoiCaptured()
     {
+        Debug.Log("SadBoi done.");
         for(byte i = 0; i < 4; ++i)
         {
             InstantiateSBText();
@@ -36,6 +38,7 @@ public class EventObserver : MonoBehaviour
 
     private void OverworkedCaptured()
     {
+        Debug.Log("Overworked done.");
         for(byte i = 0; i < 4; ++i)
         {
             InstantiateOWText();
