@@ -11,26 +11,94 @@ public class Door
 
 public class DoorController : MonoBehaviour
 {
-    public Transform doorTransform;
+    Transform doorTransform;
     public Door door = new Door();
     public KeyCode interactKey = KeyCode.E;
     public string doorLockedText = "Door locked, requires key";
     public string openDoorText = "E to open door";
     public float raycastDistance = 100f;
     public LayerMask playerLayer;
-    public TextMeshProUGUI interactionText;
+    TextMeshProUGUI interactionText;
     GameObject player; 
     public bool playerHasKey = false;
     private bool isPlayerNear = false;
     private Coroutine hideTextCoroutine;
+    public bool forward, right, diagonal; 
 
     void Start()
     {
         player = GameObject.Find("Player").gameObject;
         doorTransform = transform;
+        interactionText = GameObject.Find("InteractionText").GetComponent<TextMeshProUGUI>(); 
     }
 
     void Update()
+    {
+        if (forward)
+        {
+            ForwardRaycast();
+        }
+
+        if (right)
+        {
+            RightRaycast();
+        }
+
+        if (diagonal)
+        {
+            DiagonalRaycast();
+        }
+
+        if (interactionText && !isPlayerNear)
+        {
+            interactionText.gameObject.SetActive(false);
+        }
+    }
+
+    void ForwardRaycast()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(doorTransform.position, doorTransform.forward, out hit, raycastDistance, playerLayer) ||
+            Physics.Raycast(doorTransform.position, -doorTransform.forward, out hit, raycastDistance, playerLayer))
+        {
+            if (hit.collider.gameObject == player)
+            {
+                Debug.DrawLine(doorTransform.position, hit.point, Color.green); // Draw the raycast line
+
+                isPlayerNear = true;
+
+                if (door.requireKey)
+                {
+                    if (playerHasKey && Input.GetKeyDown(interactKey) || door.isOpened && Input.GetKeyDown(interactKey))
+                    {
+                        OpenDoor();
+                    }
+                    else if (!playerHasKey && Input.GetKeyDown(interactKey))
+                    {
+                        ShowInteractionText(doorLockedText);
+                    }
+                }
+                else
+                {
+                    if (Input.GetKeyDown(interactKey))
+                    {
+                        OpenDoor();
+                    }
+                }
+            }
+            else
+            {
+                isPlayerNear = false;
+            }
+        }
+        else
+        {
+            isPlayerNear = false;
+        }
+    }
+
+    void RightRaycast()
     {
         RaycastHit hit;
 
@@ -71,11 +139,11 @@ public class DoorController : MonoBehaviour
         {
             isPlayerNear = false;
         }
+    }
 
-        if (interactionText && !isPlayerNear)
-        {
-            interactionText.gameObject.SetActive(false);
-        }
+    void DiagonalRaycast()
+    {
+
     }
 
     void OpenDoor()
