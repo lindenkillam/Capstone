@@ -21,6 +21,7 @@ TagManager:
   - RedWall
   - SadBoi
   - Sound
+  - Overworked
   layers:
   - Default
   - TransparentFX
@@ -34,7 +35,7 @@ TagManager:
   - Enemy
   - NoteUI
   - IgnoreLight
-  - 
+  - Player
   - 
   - 
   - 
