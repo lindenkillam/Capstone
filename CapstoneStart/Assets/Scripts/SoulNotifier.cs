@@ -6,6 +6,13 @@ public class SoulNotifier : MonoBehaviour
     public static event Action OnTrueBelieverCaptured;
     public static event Action OnSadBoiCaptured;
     public static event Action OnOverworkedCaptured;
+    public static event Action BossGotcha;
+    private GameObject boss;
+
+    void Awake()
+    {
+        boss = GameObject.FindGameObjectWithTag("Boss");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,6 +31,12 @@ public class SoulNotifier : MonoBehaviour
             else if(this.CompareTag("Overworked") && OnOverworkedCaptured != null)
             {
                 OnOverworkedCaptured();
+            }
+            else if(this.CompareTag("BossCollider") && BossGotcha != null)
+            {
+                BossGotcha();
+                Destroy(boss);
+                return;
             }
 
             Destroy(this.gameObject);

@@ -50,7 +50,7 @@ public class TrueBelieverScript : MonoBehaviour
             random.y = 1f;
             nextLocation = this.transform.position + random;
 
-            if(NavMesh.SamplePosition(nextLocation, out NavMeshHit hit, 5f , NavMesh.AllAreas))
+            if(NavMesh.SamplePosition(nextLocation, out NavMeshHit hit, 5f, NavMesh.AllAreas))
             {
                 nextLocation = hit.position;
                 navAgent.SetDestination(nextLocation);

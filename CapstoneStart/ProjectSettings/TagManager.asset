@@ -22,6 +22,10 @@ TagManager:
   - SadBoi
   - Sound
   - Overworked
+  - GoldKey
+  - Note
+  - Boss
+  - BossCollider
   layers:
   - Default
   - TransparentFX

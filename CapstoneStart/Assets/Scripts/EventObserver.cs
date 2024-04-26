@@ -16,6 +16,7 @@ public class EventObserver : MonoBehaviour
         SoulNotifier.OnTrueBelieverCaptured += TrueBelieverCaptured;
         SoulNotifier.OnSadBoiCaptured += SadBoiCaptured;
         SoulNotifier.OnOverworkedCaptured += OverworkedCaptured;
+        SoulNotifier.BossGotcha += BossDoneGotcha;
     }
 
     private void TrueBelieverCaptured()
@@ -43,6 +44,16 @@ public class EventObserver : MonoBehaviour
         {
             InstantiateOWText();
         }
+    }
+
+    private void BossDoneGotcha()
+    {
+        GameObject newTextPrefab = Instantiate(textPrefab, canvas.transform, false);
+        newTextPrefab.GetComponent<TextMeshProUGUI>().text = "You met the old man himself.";
+        newTextPrefab.GetComponent<RectTransform>().anchorMin = new Vector2(0.5f, 0.5f); // anchor at center
+        newTextPrefab.GetComponent<RectTransform>().anchorMax = new Vector2(0.5f, 0.5f); // anchor at center
+        newTextPrefab.GetComponent<RectTransform>().pivot = new Vector2(0.5f, 0.5f); // pivot at center
+        newTextPrefab.GetComponent<RectTransform>().anchoredPosition = new Vector2(0, 300);
     }
 
     private void InstantiateTBText()

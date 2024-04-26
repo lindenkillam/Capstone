@@ -65,6 +65,7 @@ public class BossScript : MonoBehaviour
     private void Wander()
     {
         Debug.Log("Wandering!");
+        tetaviPlayer.gameObject.SetActive(false);
         if(audioSource.isPlaying)
         {
             //soundActivated = false;
