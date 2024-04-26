@@ -16,23 +16,23 @@ public class DoorController : MonoBehaviour
     public KeyCode interactKey = KeyCode.E;
     public string doorLockedText = "Door locked, requires key";
     public string openDoorText = "E to open door";
-    public float raycastDistance = 100f;
+    private float raycastDistance = 2.5f;
     public LayerMask playerLayer;
-    TextMeshProUGUI interactionText;
+    public TextMeshProUGUI interactionText;
     GameObject player; 
     public bool playerHasKey = false;
     private bool isPlayerNear = false;
     private Coroutine hideTextCoroutine;
-    public bool forward, right, diagonal; 
+    public bool forward, right, diagonal;
+    bool doorOpened; 
 
     void Start()
     {
         player = GameObject.Find("Player").gameObject;
         doorTransform = transform;
-        interactionText = GameObject.Find("InteractionText").GetComponent<TextMeshProUGUI>(); 
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if (forward)
         {
@@ -49,9 +49,13 @@ public class DoorController : MonoBehaviour
             DiagonalRaycast();
         }
 
-        if (interactionText && !isPlayerNear)
+        if (doorOpened)
         {
-            interactionText.gameObject.SetActive(false);
+            ShowInteractionText("Door opened");
+        }
+        else
+        {
+            ShowInteractionText(openDoorText); 
         }
     }
 
@@ -62,17 +66,19 @@ public class DoorController : MonoBehaviour
         if (Physics.Raycast(doorTransform.position, doorTransform.forward, out hit, raycastDistance, playerLayer) ||
             Physics.Raycast(doorTransform.position, -doorTransform.forward, out hit, raycastDistance, playerLayer))
         {
+            
             if (hit.collider.gameObject == player)
             {
                 Debug.DrawLine(doorTransform.position, hit.point, Color.green); // Draw the raycast line
-
-                isPlayerNear = true;
-
+                doorOpened = false; 
                 if (door.requireKey)
                 {
                     if (playerHasKey && Input.GetKeyDown(interactKey) || door.isOpened && Input.GetKeyDown(interactKey))
                     {
-                        OpenDoor();
+                        if (isPlayerNear)
+                        {
+                            OpenDoor();
+                        }   
                     }
                     else if (!playerHasKey && Input.GetKeyDown(interactKey))
                     {
@@ -81,20 +87,12 @@ public class DoorController : MonoBehaviour
                 }
                 else
                 {
-                    if (Input.GetKeyDown(interactKey))
+                    if (Input.GetKeyDown(interactKey) && isPlayerNear)
                     {
                         OpenDoor();
                     }
                 }
             }
-            else
-            {
-                isPlayerNear = false;
-            }
-        }
-        else
-        {
-            isPlayerNear = false;
         }
     }
 
@@ -108,14 +106,16 @@ public class DoorController : MonoBehaviour
             if (hit.collider.gameObject == player)
             {
                 Debug.DrawLine(doorTransform.position, hit.point, Color.green); // Draw the raycast line
-
-                isPlayerNear = true;
-
+       
+                doorOpened = false;
                 if (door.requireKey)
                 {
                     if (playerHasKey && Input.GetKeyDown(interactKey) || door.isOpened && Input.GetKeyDown(interactKey))
                     {
-                        OpenDoor();
+                        if (isPlayerNear)
+                        {
+                            OpenDoor();
+                        }
                     }
                     else if (!playerHasKey && Input.GetKeyDown(interactKey))
                     {
@@ -124,20 +124,12 @@ public class DoorController : MonoBehaviour
                 }
                 else
                 {
-                    if (Input.GetKeyDown(interactKey))
+                    if (Input.GetKeyDown(interactKey) && isPlayerNear)
                     {
                         OpenDoor();
                     }
                 }
             }
-            else
-            {
-                isPlayerNear = false;
-            }
-        }
-        else
-        {
-            isPlayerNear = false;
         }
     }
 
@@ -149,6 +141,7 @@ public class DoorController : MonoBehaviour
     void OpenDoor()
     {
         door.isOpened = true;
+        doorOpened = true; 
         Quaternion targetRotation = doorTransform.rotation * Quaternion.Euler(0, 90, 0);
         StartCoroutine(RotateDoor(targetRotation));
     }
@@ -169,8 +162,7 @@ public class DoorController : MonoBehaviour
         {
             StopCoroutine(hideTextCoroutine);
         }
-        ShowInteractionText("Door opened");
-        hideTextCoroutine = StartCoroutine(HideTextAfterDelay(2f));
+        //hideTextCoroutine = StartCoroutine(HideTextAfterDelay(2f));
 
         yield return new WaitForSeconds(2f);
 
@@ -189,7 +181,6 @@ public class DoorController : MonoBehaviour
     {
         if (interactionText)
         {
-            interactionText.gameObject.SetActive(true);
             interactionText.text = message;
         }
     }
