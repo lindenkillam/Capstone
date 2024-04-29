@@ -26,6 +26,10 @@ TagManager:
   - Note
   - Boss
   - BossCollider
+  - Door
+  - occupiedDoor
+  - Fire
+  - Light
   layers:
   - Default
   - TransparentFX
@@ -40,7 +44,7 @@ TagManager:
   - NoteUI
   - IgnoreLight
   - Player
-  - 
+  - Door
   - 
   - 
   - 
