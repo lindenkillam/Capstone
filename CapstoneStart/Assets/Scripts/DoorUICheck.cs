@@ -66,7 +66,7 @@ public class DoorUICheck : MonoBehaviour
         {
             if (door.isOpened)
             {
-                OpenDoor(hitInfo.transform);
+                OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
             }
 
             if (door.requireKey && !doorOpening)
@@ -74,7 +74,7 @@ public class DoorUICheck : MonoBehaviour
                 if ((door.guestRoomDoor && playerHasGuestKey) ||
                     (door.specialRoomDoor && playerHasSpecialKey))
                 {
-                    OpenDoor(hitInfo.transform);
+                    OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
                 }
                 else
                 {
@@ -83,20 +83,20 @@ public class DoorUICheck : MonoBehaviour
             }
             else if (!door.requireKey && !doorOpening)
             {
-                OpenDoor(hitInfo.transform);
+                OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
             }
         }
     }
 
-    private void OpenDoor(Transform doorTransform)
+    private void OpenDoor(Transform doorTransform, float RotateFloat)
     {
         Door door = doorTransform.GetComponent<Door>();
         door.isOpened = true;
-        Quaternion targetRotation = doorTransform.rotation * Quaternion.Euler(0, 90, 0);
-        StartCoroutine(RotateDoor(targetRotation, doorTransform));
+        Quaternion targetRotation = doorTransform.rotation * Quaternion.Euler(0, RotateFloat, 0);
+        StartCoroutine(RotateDoor(targetRotation, doorTransform, RotateFloat));
     }
 
-    IEnumerator RotateDoor(Quaternion targetRotation, Transform target)
+    IEnumerator RotateDoor(Quaternion targetRotation, Transform target, float RotateFloat)
     {
         float duration = 1f;
         float elapsed = 0f;
@@ -111,7 +111,7 @@ public class DoorUICheck : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        targetRotation = target.rotation * Quaternion.Euler(0, -90, 0);
+        targetRotation = target.rotation * Quaternion.Euler(0, -RotateFloat, 0);
         elapsed = 0f;
 
         while (elapsed < duration)
