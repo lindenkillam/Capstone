@@ -9,7 +9,9 @@ public class DoorUICheck : MonoBehaviour
     public float raycastDistance = 2.5f;
     public KeyCode interactKey = KeyCode.E;
     public bool playerHasGuestKey, playerHasSpecialKey;
-    public bool isDoorHit; 
+    public bool isDoorHit;
+    public bool doorOpening;
+    public bool findDoorLocked; 
 
     [Header("Text")]
     public TextMeshProUGUI interactionText;
@@ -21,29 +23,38 @@ public class DoorUICheck : MonoBehaviour
 
     void Update()
     {
-        DoorCheck();
-    }
+        RaycastHit hit;
+        hit = hitInfo;
 
+        if (isDoorHit)
+        {
+            if (findDoorLocked)
+            {
+                interactionText.text = doorLockedText;
+                StartCoroutine(FalseDelay());
+            }
+            else
+            {
+                interactionText.text = openDoorText;
+                interactionText.gameObject.SetActive(true);
+                DoorCheck();
+            }
+        }
+        else
+        {
+            interactionText.text = "";
+            interactionText.gameObject.SetActive(false);
+        }
+
+    }
+    
     void DoorCheck()
     {
-        // Reset hit door state each frame
-        isDoorHit = false;
-
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(interactKey))
+        if (Input.GetKeyDown(interactKey))
         {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance, targetMask))
+            if (Physics.Raycast(transform.position, transform.forward, out hitInfo, raycastDistance, targetMask))
             {
-                isDoorHit = true;
-                hitInfo = hit; // Store hit information
-                if (Input.GetMouseButtonDown(0))
-                {
-                    ShowInteractionText(openDoorText, 1.5f);
-                }
-                else if (Input.GetKeyDown(interactKey))
-                {
-                    InteractWithDoor();
-                }
+                InteractWithDoor();
             }
         }
     }
@@ -55,10 +66,10 @@ public class DoorUICheck : MonoBehaviour
         {
             if (door.isOpened)
             {
-                return;
+                OpenDoor(hitInfo.transform);
             }
 
-            if (door.requireKey)
+            if (door.requireKey && !doorOpening)
             {
                 if ((door.guestRoomDoor && playerHasGuestKey) ||
                     (door.specialRoomDoor && playerHasSpecialKey))
@@ -67,10 +78,10 @@ public class DoorUICheck : MonoBehaviour
                 }
                 else
                 {
-                    ShowInteractionText(doorLockedText, 1.5f);
+                    findDoorLocked = true; 
                 }
             }
-            else
+            else if (!door.requireKey && !doorOpening)
             {
                 OpenDoor(hitInfo.transform);
             }
@@ -87,17 +98,18 @@ public class DoorUICheck : MonoBehaviour
 
     IEnumerator RotateDoor(Quaternion targetRotation, Transform target)
     {
-        float duration = 2f;
+        float duration = 1f;
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
+            doorOpening = true; 
             elapsed += Time.deltaTime;
             target.rotation = Quaternion.Slerp(target.rotation, targetRotation, elapsed / duration);
             yield return null;
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         targetRotation = target.rotation * Quaternion.Euler(0, -90, 0);
         elapsed = 0f;
@@ -107,16 +119,31 @@ public class DoorUICheck : MonoBehaviour
             elapsed += Time.deltaTime;
             target.rotation = Quaternion.Slerp(target.rotation, targetRotation, elapsed / duration);
             yield return null;
+            doorOpening = false; 
         }
     }
 
-    IEnumerator ShowInteractionText(string message, float delay)
+    void OnTriggerStay(Collider col)
     {
-        interactionText.gameObject.SetActive(true);
-        interactionText.text = message;
+        if (col.tag == "Door")
+        {
+            isDoorHit = true;
+        }
+    }
 
-        yield return new WaitForSeconds(delay);
+    void OnTriggerExit(Collider col)
+    {
+        if (col.tag == "Door")
+        {
+            isDoorHit = false;
+        }
+    }
 
-        interactionText.gameObject.SetActive(false);
+    IEnumerator FalseDelay()
+    {
+        yield return new WaitForSeconds(1f); 
+        findDoorLocked = false;   
     }
 }
+
+
