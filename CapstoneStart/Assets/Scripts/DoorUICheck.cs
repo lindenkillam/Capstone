@@ -125,7 +125,7 @@ public class DoorUICheck : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (col.tag == "Door")
+        if (col.gameObject.tag == "Door")
         {
             isDoorHit = true;
         }
@@ -133,7 +133,7 @@ public class DoorUICheck : MonoBehaviour
 
     void OnTriggerExit(Collider col)
     {
-        if (col.tag == "Door")
+        if (col.gameObject.tag == "Door")
         {
             isDoorHit = false;
         }
@@ -145,5 +145,3 @@ public class DoorUICheck : MonoBehaviour
         findDoorLocked = false;   
     }
 }
-
-

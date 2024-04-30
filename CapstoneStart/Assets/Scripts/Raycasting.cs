@@ -17,14 +17,12 @@ public class Raycasting : MonoBehaviour
     public GameObject boss;
     [SerializeField] private NoteManager noteManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
         //boss = GameObject.FindWithTag("Boss");
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Raycasting
@@ -50,7 +48,7 @@ public class Raycasting : MonoBehaviour
 
                 noteManager.ShowNote();
             }
-            else if(Physics.Raycast(ray, out hit, 20, keyLayer))
+            else if(Physics.Raycast(ray, out hit, 10, keyLayer))
             {
                 if(hit.transform.CompareTag("YellowKey"))
                 {
@@ -89,7 +87,7 @@ public class Raycasting : MonoBehaviour
                 Destroy(hit.collider.gameObject);
                 //hit.transform.GetComponent<Renderer>().material.color = Color.white;
             }
-            else if(Physics.Raycast(ray, out hit, 20, specialWallLayer))
+            else if(Physics.Raycast(ray, out hit, 10, specialWallLayer))
             {
                 if(goldKeyCollected && redKeyCollected && blueKeyCollected && yellowKeyCollected)
                 {

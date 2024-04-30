@@ -23,25 +23,34 @@ public class LectureVideoPlayerScript : MonoBehaviour
 
   void Update()
   {
-    if(!videoPlayer.isPlaying && videoPlayer.isPrepared)
-    {
-        newLecture = Random.Range(0, vm.lectures.Length);
+    
+  }
 
-        if(newLecture == lastLecture)
-          return;
-        
-        /*
-        do
+  public void PlayVideo()
+  {
+        if (!videoPlayer.isPlaying && videoPlayer.isPrepared)
         {
             newLecture = Random.Range(0, vm.lectures.Length);
-        } while(newLecture == lastLecture);
-        */
 
-        Debug.Log("New lecture chosen: Lecture #" + newLecture);
-        lastLecture = newLecture;
+            if (newLecture == lastLecture)
+                return;
 
-        videoPlayer.clip = vm.lectures[newLecture];
-        videoPlayer.Play();
-    }
+            /*
+            do
+            {
+                newLecture = Random.Range(0, vm.lectures.Length);
+            } while(newLecture == lastLecture);
+            */
+
+            Debug.Log("New lecture chosen: Lecture #" + newLecture);
+            lastLecture = newLecture;
+
+            videoPlayer.clip = vm.lectures[newLecture];
+            videoPlayer.Play();
+        }
+        else if (videoPlayer.isPlaying)
+        {
+            return; 
+        }
   }
 }

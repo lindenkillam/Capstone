@@ -30,6 +30,9 @@ TagManager:
   - occupiedDoor
   - Fire
   - Light
+  - GuestRoomKey
+  - SpecialRoomKey
+  - TV
   layers:
   - Default
   - TransparentFX
@@ -45,7 +48,7 @@ TagManager:
   - IgnoreLight
   - Player
   - Door
-  - 
+  - TVButton
   - 
   - 
   - 
