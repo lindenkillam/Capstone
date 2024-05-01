@@ -19,7 +19,10 @@ public class DoorUICheck : MonoBehaviour
     public string openDoorText = "E to open door";
 
     private Coroutine showTextCoroutine;
-    private RaycastHit hitInfo; // Store hit information for later use
+    private RaycastHit hitInfo;
+
+    public GameObject hintPaper;
+    bool triggerHint; 
 
     void Update()
     {
@@ -179,12 +182,26 @@ public class DoorUICheck : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "WaterFaucet")
+        {
+            WaterFaucet WF = col.gameObject.GetComponent<WaterFaucet>();
+            WF.playParticle = true;
+            if (!triggerHint)
+            {
+                hintPaper.SetActive(true);
+                triggerHint = true; 
+            }
+        }
+    }
+
     void OnTriggerStay(Collider col)
     {
         if (col.gameObject.tag == "Door")
         {
             isDoorHit = true;
-        }
+        }      
     }
 
     void OnTriggerExit(Collider col)
@@ -192,6 +209,12 @@ public class DoorUICheck : MonoBehaviour
         if (col.gameObject.tag == "Door")
         {
             isDoorHit = false;
+        }
+
+        if (col.gameObject.tag == "WaterFaucet")
+        {
+            WaterFaucet WF = col.gameObject.GetComponent<WaterFaucet>();
+            WF.playParticle = false;
         }
     }
 

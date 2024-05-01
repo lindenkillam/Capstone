@@ -15,7 +15,7 @@ public class PlayerRaycast : MonoBehaviour
     public bool drawerChecked;
     float drawerMoveDistance = 5.2f; 
     Transform drawerTrans;
-    public LayerMask keyLayer, specialWallLayer, noteLayer, tvButtonLayer;
+    public LayerMask keyLayer, specialWallLayer, noteLayer, tvButtonLayer, waterFaucetLayer;
     public GameObject[] TrueBelievers, SadBois, OverworkedGuys, BossComponents;
     public GameObject textPrefab;
     public Canvas canvas;
@@ -112,6 +112,8 @@ public class PlayerRaycast : MonoBehaviour
                 break;
             case "Spotlight":
                 spotlight.SetActive(true); 
+                break;
+            case "HintPaper":
                 break; 
         }
 

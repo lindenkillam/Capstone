@@ -11,20 +11,27 @@ public class WaterFaucet : MonoBehaviour
     private float m_Power;
     public bool washing, playParticle;
     public GameObject waterSound;
+    AudioSource audioSource; 
 
-    private void Update()
+    private void FixedUpdate()
     {
+        audioSource = waterSound.GetComponent<AudioSource>();
         if (playParticle)
         {
             m_Power = Mathf.Lerp(m_Power, Input.GetMouseButton(0) ? maxPower : minPower, Time.deltaTime * changeSpeed);
-            if (Input.GetMouseButtonDown(0))
+
+            if (m_Power > minPower && !audioSource.isPlaying)
             {
-                waterSound.GetComponent<AudioSource>().Play();
+                audioSource.Play();
             }
-            if (m_Power > minPower)
+            else if (m_Power <= minPower && audioSource.isPlaying)
             {
-                washing = true;
+                audioSource.Stop();
             }
+
+            audioSource.volume = Mathf.Clamp01((m_Power - minPower) / (maxPower - minPower) + 0.1f); 
+
+            washing = (m_Power > minPower);
         }
 
         foreach (var system in hoseWaterSystems)

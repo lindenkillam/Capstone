@@ -33,6 +33,7 @@ TagManager:
   - GuestRoomKey
   - SpecialRoomKey
   - TV
+  - WaterFaucet
   layers:
   - Default
   - TransparentFX
