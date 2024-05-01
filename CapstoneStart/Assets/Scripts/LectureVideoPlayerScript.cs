@@ -7,6 +7,7 @@ public class LectureVideoPlayerScript : MonoBehaviour
   private VideoPlayer videoPlayer;
   public VideoManagerScript vm;
   int lastLecture = -1, newLecture;
+  public bool hasKey; 
 
   // Start is called before the first frame update
   void Awake()

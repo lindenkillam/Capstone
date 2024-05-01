@@ -70,12 +70,11 @@ public class PlayerRaycast : MonoBehaviour
             }
             else if(Physics.Raycast(ray, out hit, 10, tvButtonLayer))
             {
-                Debug.Log("ss"); 
                 LectureVideoPlayerScript videoScript = hit.collider.gameObject.GetComponent<LectureVideoPlayerScript>();
                 videoScript.PlayVideo();
-                drawerTrans = hit.transform.GetChild(0).gameObject.transform; 
-                if (!drawerChecked)
+                if (!drawerChecked && videoScript.hasKey)
                 {
+                    drawerTrans = hit.transform.GetChild(0).gameObject.transform;
                     Vector3 targetPos = drawerTrans.localPosition + new Vector3(0, 0, -drawerMoveDistance);
                     StartCoroutine(MoveDrawer(targetPos));
                 }
@@ -188,8 +187,6 @@ public class PlayerRaycast : MonoBehaviour
 
         // Ensure the drawer reaches the initial position
         drawerTrans.localPosition = initialPos;
-
-        drawerChecked = false;
     }
 
     void ActivateObjects(GameObject[] objects)

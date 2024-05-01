@@ -14178,12 +14178,12 @@ Transform:
   - {fileID: 5385412253313059140}
   - {fileID: 5385412252894788320}
   - {fileID: 5385412252192167711}
-  - {fileID: 5385412253133093583}
   - {fileID: 5385412253903727801}
-  - {fileID: 5385412253219200856}
-  - {fileID: 5385412252845762897}
-  - {fileID: 5385412252794326254}
-  - {fileID: 5385412253563734365}
+  - {fileID: 5385412253133093583}
+  - {fileID: 5385412252655606949}
+  - {fileID: 5385412252373555464}
+  - {fileID: 5385412253866883150}
+  - {fileID: 5385412253614644950}
   - {fileID: 5385412253521851811}
   - {fileID: 5385412252242958315}
   - {fileID: 5385412254248695800}
@@ -14204,7 +14204,7 @@ GameObject:
   - component: {fileID: 5385412252373555462}
   - component: {fileID: 5385412252373555465}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: ToiletDoors
   m_TagString: occupiedDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14218,12 +14218,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5385412252373555467}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 17.500002, y: 1.54, z: -65.14001}
+  m_LocalScale: {x: 1, y: 1, z: 0.5803401}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5385412252845762897}
+  m_Father: {fileID: 5385412252319649579}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &5385412252373555460
 MonoBehaviour:
@@ -28350,7 +28350,7 @@ GameObject:
   - component: {fileID: 5385412252655606947}
   - component: {fileID: 5385412252655606946}
   m_Layer: 0
-  m_Name: Cube (4)
+  m_Name: ToiletDoors
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28364,12 +28364,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5385412252655606948}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 13.5, y: 1.54, z: -65.14001}
+  m_LocalScale: {x: 1, y: 1, z: 0.5803401}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5385412253219200856}
+  m_Father: {fileID: 5385412252319649579}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &5385412252655606945
 MonoBehaviour:
@@ -28660,70 +28660,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &5385412252794326257
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5385412252794326254}
-  m_Layer: 0
-  m_Name: SmallDoor
-  m_TagString: Door
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5385412252794326254
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5385412252794326257}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 21.5, y: 1.54, z: -65.14001}
-  m_LocalScale: {x: 1, y: 1, z: 0.58034}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5385412253866883150}
-  m_Father: {fileID: 5385412252319649579}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &5385412252845762896
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5385412252845762897}
-  m_Layer: 0
-  m_Name: SmallDoor
-  m_TagString: occupiedDoor
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5385412252845762897
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5385412252845762896}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 17.5, y: 1.54, z: -65.14001}
-  m_LocalScale: {x: 1, y: 1, z: 0.58034}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5385412252373555464}
-  m_Father: {fileID: 5385412252319649579}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5385412252894788327
 GameObject:
   m_ObjectHideFlags: 0
@@ -29372,38 +29308,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &5385412253219200859
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5385412253219200856}
-  m_Layer: 0
-  m_Name: SmallDoor
-  m_TagString: Door
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5385412253219200856
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5385412253219200859}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 13.5, y: 1.54, z: -65.14001}
-  m_LocalScale: {x: 1, y: 1, z: 0.58034}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5385412252655606949}
-  m_Father: {fileID: 5385412252319649579}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5385412253313059143
 GameObject:
   m_ObjectHideFlags: 0
@@ -43550,38 +43454,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &5385412253563734364
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5385412253563734365}
-  m_Layer: 0
-  m_Name: SmallDoor
-  m_TagString: Door
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5385412253563734365
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5385412253563734364}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 25.5, y: 1.54, z: -65.14001}
-  m_LocalScale: {x: 1, y: 1, z: 0.58034}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 5385412253614644950}
-  m_Father: {fileID: 5385412252319649579}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5385412253614644953
 GameObject:
   m_ObjectHideFlags: 0
@@ -43596,7 +43468,7 @@ GameObject:
   - component: {fileID: 5385412253614644948}
   - component: {fileID: 5385412253614644951}
   m_Layer: 0
-  m_Name: Cube (9)
+  m_Name: ToiletDoors
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43610,12 +43482,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5385412253614644953}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 25.500002, y: 1.54, z: -65.14001}
+  m_LocalScale: {x: 1, y: 1, z: 0.5803401}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5385412253563734365}
+  m_Father: {fileID: 5385412252319649579}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &5385412253614644946
 MonoBehaviour:
@@ -43920,7 +43792,7 @@ GameObject:
   - component: {fileID: 5385412253866883148}
   - component: {fileID: 5385412253866883151}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: ToiletDoors
   m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43934,12 +43806,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5385412253866883153}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 21.5, y: 1.54, z: -65.14001}
+  m_LocalScale: {x: 1, y: 1, z: 0.5803401}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5385412252794326254}
+  m_Father: {fileID: 5385412252319649579}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &5385412253866883146
 MonoBehaviour:

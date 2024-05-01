@@ -66,7 +66,14 @@ public class DoorUICheck : MonoBehaviour
         {
             if (door.isOpened)
             {
-                OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                if (!door.isWardrobe)
+                {
+                    OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                }
+                else
+                {
+                    OpenWardrobe(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                }
             }
 
             if (door.requireKey && !doorOpening)
@@ -74,7 +81,14 @@ public class DoorUICheck : MonoBehaviour
                 if ((door.guestRoomDoor && playerHasGuestKey) ||
                     (door.specialRoomDoor && playerHasSpecialKey))
                 {
-                    OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                    if (!door.isWardrobe)
+                    {
+                        OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                    }
+                    else
+                    {
+                        OpenWardrobe(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                    }
                 }
                 else
                 {
@@ -83,7 +97,14 @@ public class DoorUICheck : MonoBehaviour
             }
             else if (!door.requireKey && !doorOpening)
             {
-                OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                if (!door.isWardrobe)
+                {
+                    OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                }
+                else
+                {
+                    OpenWardrobe(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                }
             }
         }
     }
@@ -94,6 +115,14 @@ public class DoorUICheck : MonoBehaviour
         door.isOpened = true;
         Quaternion targetRotation = doorTransform.rotation * Quaternion.Euler(0, RotateFloat, 0);
         StartCoroutine(RotateDoor(targetRotation, doorTransform, RotateFloat));
+    }
+
+    private void OpenWardrobe(Transform doorTransform, float RotateFloat)
+    {
+        Door door = doorTransform.GetComponent<Door>();
+        door.isOpened = true;
+        Quaternion targetRotation = doorTransform.rotation * Quaternion.Euler(RotateFloat, 0, 0);
+        StartCoroutine(RotateWardrobe(targetRotation, doorTransform, RotateFloat));
     }
 
     IEnumerator RotateDoor(Quaternion targetRotation, Transform target, float RotateFloat)
@@ -120,6 +149,33 @@ public class DoorUICheck : MonoBehaviour
             target.rotation = Quaternion.Slerp(target.rotation, targetRotation, elapsed / duration);
             yield return null;
             doorOpening = false; 
+        }
+    }
+
+    IEnumerator RotateWardrobe(Quaternion targetRotation, Transform target, float RotateFloat)
+    {
+        float duration = 1f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            doorOpening = true;
+            elapsed += Time.deltaTime;
+            target.rotation = Quaternion.Slerp(target.rotation, targetRotation, elapsed / duration);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+
+        targetRotation = target.rotation * Quaternion.Euler(-RotateFloat, 0, 0);
+        elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            target.rotation = Quaternion.Slerp(target.rotation, targetRotation, elapsed / duration);
+            yield return null;
+            doorOpening = false;
         }
     }
 
