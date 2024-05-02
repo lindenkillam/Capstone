@@ -11,7 +11,9 @@ public class WaterFaucet : MonoBehaviour
     private float m_Power;
     public bool washing, playParticle;
     public GameObject waterSound;
-    AudioSource audioSource; 
+    AudioSource audioSource;
+    public GameObject hintPaper; 
+    public bool spawnHint; 
 
     private void FixedUpdate()
     {
@@ -23,6 +25,11 @@ public class WaterFaucet : MonoBehaviour
             if (m_Power > minPower && !audioSource.isPlaying)
             {
                 audioSource.Play();
+                if (spawnHint)
+                {
+                    Instantiate(hintPaper, transform.position, Quaternion.identity);
+                    spawnHint = false;  
+                }
             }
             else if (m_Power <= minPower && audioSource.isPlaying)
             {

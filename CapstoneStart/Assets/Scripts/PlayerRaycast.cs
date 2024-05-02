@@ -13,7 +13,7 @@ public class PlayerRaycast : MonoBehaviour
 
     public GameObject spotlight;
     public bool drawerChecked;
-    float drawerMoveDistance = 5.2f; 
+    float drawerMoveDistance = 5.5f; 
     Transform drawerTrans;
     public LayerMask keyLayer, specialWallLayer, noteLayer, tvButtonLayer, waterFaucetLayer;
     public GameObject[] TrueBelievers, SadBois, OverworkedGuys, BossComponents;
@@ -212,6 +212,7 @@ public class PlayerRaycast : MonoBehaviour
 
         // Ensure the drawer reaches the initial position
         drawerTrans.localPosition = initialPos;
+        drawerChecked = false;
     }
 
     void ActivateObjects(GameObject[] objects)
