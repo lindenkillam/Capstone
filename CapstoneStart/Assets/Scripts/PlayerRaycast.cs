@@ -41,7 +41,7 @@ public class PlayerRaycast : MonoBehaviour
         DUC = GetComponent<DoorUICheck>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         silverKeyNum.text = "x " + curSilverKeyNum.ToString();
         goldKeyNum.text = "x " + curGoldKeyNum.ToString();

@@ -95,7 +95,7 @@ public class BossScript : MonoBehaviour
         navAgent.speed = 2f;
         if(!audioSource.isPlaying)
         {
-            Debug.Log("Hoffman sound activated!");
+            Debug.Log("I'm scary and mean!");
             //soundActivated = true;
             int i = Random.Range(0, HoffmanSounds.Length);
             audioSource.clip = HoffmanSounds[i];
