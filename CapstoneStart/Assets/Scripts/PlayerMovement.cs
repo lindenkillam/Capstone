@@ -12,11 +12,11 @@ public class PlayerMovement : MonoBehaviour
     public Transform groundCheck;
     public float groundDistance = 1f;
     public LayerMask groundMask;
-    private bool isGrounded = true;
+    private bool isGrounded = true; 
 
-    public float normalHeight;
-    public float crunchHeight;
-    public float heightLerpSpeed = 2f;
+    public float normalScale;
+    public float crunchScale;
+    public float scaleLerpSpeed = 2f;
 
     void Start()
     {
@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // Movement
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -41,14 +40,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKey(KeyCode.C))
         {
             speed = crunchSpeed;
-            Crunch(crunchHeight);
-            //CrunchCenter(1f); 
+            Crunch(crunchScale);
         }
         else
         {
             speed = normalSpeed;
-            Stand(normalHeight);
-            //StandCenter(0f); 
+            Stand(normalScale);
         }
 
         controller.Move(move * speed * Time.deltaTime);
@@ -58,47 +55,31 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void Crunch(float targetHeight)
+    void Crunch(float targetScale)
     {
-        float currentHeight = controller.height;
-        controller.height = Mathf.Lerp(currentHeight, targetHeight, heightLerpSpeed * Time.deltaTime);
-        if(controller.height <= targetHeight + 0.05f)
+        float currentScale = transform.localScale.y;
+        float newYScale = Mathf.Lerp(currentScale, targetScale, scaleLerpSpeed * Time.deltaTime);
+        Vector3 newScale = new Vector3(transform.localScale.x, newYScale, transform.localScale.z);
+
+        transform.localScale = newScale;
+
+        if (Mathf.Abs(transform.localScale.y - targetScale) <= 0.05f)
         {
-            controller.height = targetHeight;
+            transform.localScale = new Vector3(transform.localScale.x, targetScale, transform.localScale.z);
         }
     }
 
-    void Stand(float targetHeight)
+    void Stand(float targetScale)
     {
-        float currentHeight = controller.height;
-        controller.height = Mathf.Lerp(currentHeight, targetHeight, heightLerpSpeed * Time.deltaTime);
-        if (controller.height >= targetHeight - 0.05f)
+        float currentScale = transform.localScale.y;
+        float newYScale = Mathf.Lerp(currentScale, targetScale, scaleLerpSpeed * Time.deltaTime);
+        Vector3 newScale = new Vector3(transform.localScale.x, newYScale, transform.localScale.z);
+
+        transform.localScale = newScale;
+
+        if (Mathf.Abs(transform.localScale.y - targetScale) >= -0.05f)
         {
-            controller.height = targetHeight;
-        }
-    }
-
-    void CrunchCenter(float targetOffset)
-    {
-        Vector3 newCenter = controller.center;
-        newCenter.y = Mathf.Lerp(newCenter.y, targetOffset, heightLerpSpeed * Time.deltaTime);
-        controller.center = newCenter;
-
-        if (newCenter.y >= targetOffset - 0.05f)
-        {
-            newCenter.y = targetOffset;
-        }
-    }
-
-    void StandCenter(float targetOffset)
-    {
-        Vector3 newCenter = controller.center;
-        newCenter.y = Mathf.Lerp(newCenter.y, targetOffset, heightLerpSpeed * Time.deltaTime);
-        controller.center = newCenter;
-
-        if (newCenter.y <= targetOffset + 0.05f)
-        {
-            newCenter.y = targetOffset;
+            transform.localScale = new Vector3(transform.localScale.x, targetScale, transform.localScale.z);
         }
     }
 }

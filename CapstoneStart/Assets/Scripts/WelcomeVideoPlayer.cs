@@ -16,6 +16,7 @@ public class WelcomeVideoPlayer : MonoBehaviour
   {
     if(!videoPlayer.isPlaying && other.gameObject.CompareTag("Player"))
     {
+            Debug.Log("ss"); 
         videoPlayer.Play();
     }
   }

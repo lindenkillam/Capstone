@@ -27,6 +27,11 @@ public class PlayerRaycast : MonoBehaviour
     DoorUICheck DUC;
     private bool mFaded = false;
     public float Duration = 1f;
+    public GameObject guestRoomKeyImage;  
+    public GameObject[] hintPaperImage;
+
+    public int curSilverKeyNum, curGoldKeyNum;
+    public TextMeshProUGUI silverKeyNum, goldKeyNum; 
 
     [SerializeField] private NoteManager noteManager;
 
@@ -38,6 +43,9 @@ public class PlayerRaycast : MonoBehaviour
 
     void FixedUpdate()
     {
+        silverKeyNum.text = "x " + curSilverKeyNum.ToString();
+        goldKeyNum.text = "x " + curGoldKeyNum.ToString();
+
         if (Input.GetMouseButtonDown(0))
         {
             if (noteManager.isOpen)
@@ -88,23 +96,28 @@ public class PlayerRaycast : MonoBehaviour
         {
             case "YellowKey":
                 yellowKeyCollected = true;
+                curSilverKeyNum += 1; 
                 ActivateObjects(SadBois);
                 break;
             case "BlueKey":
                 blueKeyCollected = true;
+                curSilverKeyNum += 1;
                 ActivateObjects(OverworkedGuys);
                 break;
             case "RedKey":
                 redKeyCollected = true;
+                curSilverKeyNum += 1;
                 ActivateObjects(TrueBelievers);
                 break;
             case "GoldKey":
                 goldKeyCollected = true;
+                curGoldKeyNum += 1;
                 ActivateObjects(BossComponents);
                 boss.SetActive(true);
                 break;
             case "GuestRoomKey":
                 DUC.playerHasGuestKey = true;
+                guestRoomKeyImage.SetActive(true); 
                 StartCoroutine(LogoParticle()); 
                 break;
             case "SpecialRoomKey":
@@ -113,8 +126,18 @@ public class PlayerRaycast : MonoBehaviour
             case "Spotlight":
                 spotlight.SetActive(true); 
                 break;
-            case "HintPaper":
-                break; 
+            case "HintPaper1":
+                hintPaperImage[0].SetActive(true); 
+                break;
+            case "HintPaper2":
+                hintPaperImage[1].SetActive(true);
+                break;
+            case "HintPaper3":
+                hintPaperImage[2].SetActive(true);
+                break;
+            case "HintPaper4":
+                hintPaperImage[3].SetActive(true);
+                break;
         }
 
         yield return null; 
