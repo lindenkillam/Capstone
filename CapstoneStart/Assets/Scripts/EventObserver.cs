@@ -10,6 +10,7 @@ public class EventObserver : MonoBehaviour
     public TMP_FontAsset[] enemyFonts;
 
     public GameObject textPrefab;
+    public GameObject bagUI; 
 
     void Start()
     {
@@ -17,6 +18,18 @@ public class EventObserver : MonoBehaviour
         SoulNotifier.OnSadBoiCaptured += SadBoiCaptured;
         SoulNotifier.OnOverworkedCaptured += OverworkedCaptured;
         SoulNotifier.BossGotcha += BossDoneGotcha;
+    }
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.B))
+        {
+            bagUI.SetActive(true);
+        }
+        else
+        {
+            bagUI.SetActive(false);
+        }
     }
 
     private void TrueBelieverCaptured()
