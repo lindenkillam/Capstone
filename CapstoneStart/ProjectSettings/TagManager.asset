@@ -41,6 +41,7 @@ TagManager:
   - Flashlight
   - TeleportForward
   - TeleportBack
+  - Ashtray
   layers:
   - Default
   - TransparentFX

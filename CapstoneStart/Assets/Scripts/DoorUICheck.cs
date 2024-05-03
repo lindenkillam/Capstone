@@ -14,12 +14,17 @@ public class DoorUICheck : MonoBehaviour
     public bool findDoorLocked; 
 
     [Header("Text")]
-    public TextMeshProUGUI interactionText;
+    public TextMeshProUGUI interactionText, altarText;
     public string doorLockedText = "Door locked, requires key";
     public string openDoorText = "E to open door";
 
     private Coroutine showTextCoroutine;
     private RaycastHit hitInfo;
+
+    public PlayerRaycast PR;
+    public GameObject altar, altarButton;
+    bool checkingAltarCondition;
+    public GameObject[] keys; 
 
     void Update()
     {
@@ -46,6 +51,31 @@ public class DoorUICheck : MonoBehaviour
             interactionText.gameObject.SetActive(false);
         }
 
+        if (checkingAltarCondition)
+        {
+            if (PR.altarCheck)
+            {
+                altarText.text = "You can now see the hidden things";
+                Cursor.lockState = CursorLockMode.None;
+                altarButton.SetActive(true); 
+            }
+            else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
+                altarText.text = "Need to have something first";
+                altarButton.SetActive(false);
+            }
+        }
+    }
+
+    public void ClickAltarButton()
+    {
+        altarButton.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        for(int i = 0; i < keys.Length; i++)
+        {
+            keys[i].SetActive(true); 
+        }
     }
     
     void DoorCheck()
@@ -186,6 +216,11 @@ public class DoorUICheck : MonoBehaviour
             WaterFaucet WF = col.gameObject.GetComponent<WaterFaucet>();
             WF.playParticle = true;
         }
+
+        if(col.gameObject == altar)
+        {
+            checkingAltarCondition = true; 
+        }
     }
 
     void OnTriggerStay(Collider col)
@@ -207,6 +242,11 @@ public class DoorUICheck : MonoBehaviour
         {
             WaterFaucet WF = col.gameObject.GetComponent<WaterFaucet>();
             WF.playParticle = false;
+        }
+
+        if (col.gameObject == altar)
+        {
+            checkingAltarCondition = false;
         }
     }
 

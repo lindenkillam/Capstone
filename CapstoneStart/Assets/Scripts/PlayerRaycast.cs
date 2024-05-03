@@ -14,7 +14,7 @@ public class PlayerRaycast : MonoBehaviour
     public bool drawerChecked;
     float drawerMoveDistance = 5.5f; 
     Transform drawerTrans;
-    public LayerMask keyLayer, specialWallLayer, noteLayer, tvButtonLayer, waterFaucetLayer;
+    public LayerMask keyLayer, specialWallLayer, noteLayer, tvButtonLayer;
     public GameObject[] TrueBelievers, SadBois, OverworkedGuys, BossComponents;
     public GameObject textPrefab;
     public Canvas canvas;
@@ -26,12 +26,13 @@ public class PlayerRaycast : MonoBehaviour
     DoorUICheck DUC;
     private bool mFaded = false;
     public float Duration = 1f;
-    public GameObject guestRoomKeyImage, flashLightImage;  
+    public GameObject specialRoomKeyImage, guestRoomKeyImage, flashLightImage, ashtrayImage;  
     public GameObject[] hintPaperImage;
-    public GameObject flashLight; 
-
-    public int curSilverKeyNum, curGoldKeyNum;
-    public TextMeshProUGUI silverKeyNum, goldKeyNum; 
+    public GameObject flashLight;
+    public Animator pyramidAnim; 
+    public int curSilverKeyNum, curGoldKeyNum, curAshtrayNum;
+    public TextMeshProUGUI silverKeyNum, goldKeyNum, ashtrayNum;
+    public bool altarCheck; 
 
     [SerializeField] private NoteManager noteManager;
 
@@ -45,6 +46,16 @@ public class PlayerRaycast : MonoBehaviour
     {
         silverKeyNum.text = "x " + curSilverKeyNum.ToString();
         goldKeyNum.text = "x " + curGoldKeyNum.ToString();
+        ashtrayNum.text = "x " + curAshtrayNum.ToString();
+
+        if(curAshtrayNum == 3)
+        {
+            altarCheck = true;
+        }
+        else
+        {
+            altarCheck = false;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -112,8 +123,8 @@ public class PlayerRaycast : MonoBehaviour
             case "GoldKey":
                 goldKeyCollected = true;
                 curGoldKeyNum += 1;
-                ActivateObjects(BossComponents);
-                boss.SetActive(true);
+                //ActivateObjects(BossComponents);
+                //boss.SetActive(true);
                 break;
             case "GuestRoomKey":
                 DUC.playerHasGuestKey = true;
@@ -121,7 +132,8 @@ public class PlayerRaycast : MonoBehaviour
                 StartCoroutine(LogoParticle()); 
                 break;
             case "SpecialRoomKey":
-                DUC.playerHasSpecialKey = true; 
+                DUC.playerHasSpecialKey = true;
+                specialRoomKeyImage.SetActive(true);
                 break;
             case "HintPaper1":
                 hintPaperImage[0].SetActive(true); 
@@ -138,7 +150,10 @@ public class PlayerRaycast : MonoBehaviour
             case "Flashlight":
                 flashLight.SetActive(true);
                 flashLightImage.SetActive(true);
-                break; 
+                break;
+            case "Ashtray":
+                curAshtrayNum += 1; 
+                break;
         }
 
         yield return null; 
@@ -228,14 +243,18 @@ public class PlayerRaycast : MonoBehaviour
     {
         if (goldKeyCollected && redKeyCollected && blueKeyCollected && yellowKeyCollected)
         {
-            GameObject winText = Instantiate(textPrefab, canvas.transform, false);
-            winText.GetComponent<TextMeshProUGUI>().text = "You escaped!!";
+            pyramidAnim.SetTrigger("Trigger");
+            if (pyramidAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !pyramidAnim.IsInTransition(0))
+            {
+                GameObject winText = Instantiate(textPrefab, canvas.transform, false);
+                winText.GetComponent<TextMeshProUGUI>().text = "You escaped!!";
 
-            RectTransform rectTransform = winText.GetComponent<RectTransform>();
-            rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
-            rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
-            rectTransform.pivot = new Vector2(0.5f, 0.5f);
-            rectTransform.anchoredPosition = Vector2.zero;
+                RectTransform rectTransform = winText.GetComponent<RectTransform>();
+                rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
+                rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
+                rectTransform.pivot = new Vector2(0.5f, 0.5f);
+                rectTransform.anchoredPosition = Vector2.zero;
+            }    
         }
     }
 }
