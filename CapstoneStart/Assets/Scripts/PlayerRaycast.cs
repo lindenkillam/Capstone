@@ -11,7 +11,6 @@ public class PlayerRaycast : MonoBehaviour
     bool redKeyCollected = false;
     bool goldKeyCollected = false;
 
-    public GameObject spotlight;
     public bool drawerChecked;
     float drawerMoveDistance = 5.5f; 
     Transform drawerTrans;
@@ -27,8 +26,9 @@ public class PlayerRaycast : MonoBehaviour
     DoorUICheck DUC;
     private bool mFaded = false;
     public float Duration = 1f;
-    public GameObject guestRoomKeyImage;  
+    public GameObject guestRoomKeyImage, flashLightImage;  
     public GameObject[] hintPaperImage;
+    public GameObject flashLight; 
 
     public int curSilverKeyNum, curGoldKeyNum;
     public TextMeshProUGUI silverKeyNum, goldKeyNum; 
@@ -123,9 +123,6 @@ public class PlayerRaycast : MonoBehaviour
             case "SpecialRoomKey":
                 DUC.playerHasSpecialKey = true; 
                 break;
-            case "Spotlight":
-                spotlight.SetActive(true); 
-                break;
             case "HintPaper1":
                 hintPaperImage[0].SetActive(true); 
                 break;
@@ -138,6 +135,10 @@ public class PlayerRaycast : MonoBehaviour
             case "HintPaper4":
                 hintPaperImage[3].SetActive(true);
                 break;
+            case "Flashlight":
+                flashLight.SetActive(true);
+                flashLightImage.SetActive(true);
+                break; 
         }
 
         yield return null; 

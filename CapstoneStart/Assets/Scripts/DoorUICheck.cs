@@ -21,9 +21,6 @@ public class DoorUICheck : MonoBehaviour
     private Coroutine showTextCoroutine;
     private RaycastHit hitInfo;
 
-    public GameObject hintPaper;
-    bool triggerHint; 
-
     void Update()
     {
         RaycastHit hit;
@@ -188,11 +185,6 @@ public class DoorUICheck : MonoBehaviour
         {
             WaterFaucet WF = col.gameObject.GetComponent<WaterFaucet>();
             WF.playParticle = true;
-            if (!triggerHint)
-            {
-                hintPaper.SetActive(true);
-                triggerHint = true; 
-            }
         }
     }
 

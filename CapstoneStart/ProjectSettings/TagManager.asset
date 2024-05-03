@@ -38,6 +38,9 @@ TagManager:
   - HintPaper2
   - HintPaper3
   - HintPaper4
+  - Flashlight
+  - TeleportForward
+  - TeleportBack
   layers:
   - Default
   - TransparentFX
@@ -54,7 +57,7 @@ TagManager:
   - Player
   - Door
   - TVButton
-  - 
+  - PostProcessing
   - 
   - 
   - 

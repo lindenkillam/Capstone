@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -80,6 +81,22 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(transform.localScale.y - targetScale) >= -0.05f)
         {
             transform.localScale = new Vector3(transform.localScale.x, targetScale, transform.localScale.z);
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("TeleportForward"))
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
+        else if (other.CompareTag("TeleportBack"))
+        {
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            SceneManager.LoadScene(Mathf.Max(currentSceneIndex - 1, 0));
         }
     }
 }
