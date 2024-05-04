@@ -51,12 +51,11 @@ public class NoteManager : MonoBehaviour
         player.enabled = !disable;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(closeKey))
+        /*if(Input.GetKeyDown(closeKey))
         {
             DisableNote();
-        }
+        }*/
     }
 }

@@ -4,31 +4,47 @@ using UnityEngine.Video;
 
 public class LectureVideoPlayerScript : MonoBehaviour
 {
-  private VideoPlayer videoPlayer;
-  public VideoManagerScript vm;
-  int lastLecture = -1, newLecture;
-  public bool hasKey; 
+    private VideoPlayer videoPlayer;
+    public VideoManagerScript vm;
+    int lastLecture = -1, newLecture;
+    public bool hasKey;
+    public float maxDistance = 6f; 
+    public float minDistance = 3f;
+    GameObject player; 
 
-  // Start is called before the first frame update
-  void Awake()
-  {
-    videoPlayer = this.GetComponent<UnityEngine.Video.VideoPlayer>();
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player"); 
+        videoPlayer = this.GetComponent<UnityEngine.Video.VideoPlayer>();
 
-    newLecture = Random.Range(0, vm.lectures.Length);
-    Debug.Log("New lecture chosen: Lecture #" + newLecture);
-    lastLecture = newLecture;
+        newLecture = Random.Range(0, vm.lectures.Length);
+        Debug.Log("New lecture chosen: Lecture #" + newLecture);
+        lastLecture = newLecture;
 
-    videoPlayer.clip = vm.lectures[newLecture];
-    videoPlayer.Play();
-  }
+        videoPlayer.clip = vm.lectures[newLecture];
+        //videoPlayer.Play();
+    }
 
-  void Update()
-  {
-    
-  }
+    void Update()
+    {
+        float distance = Vector3.Distance(transform.position, player.transform.position);
 
-  public void PlayVideo()
-  {
+        float volume = Mathf.Clamp01(1f - Mathf.InverseLerp(minDistance, maxDistance, distance));
+
+        videoPlayer.SetDirectAudioVolume(0, volume);
+
+        if (distance >= maxDistance)
+        {
+            videoPlayer.SetDirectAudioVolume(0, 0f);
+        }
+        else if (distance <= minDistance)
+        {
+            videoPlayer.SetDirectAudioVolume(0, 0f);
+        }
+    }
+
+    public void PlayVideo()
+    {
         if (!videoPlayer.isPlaying && videoPlayer.isPrepared)
         {
             newLecture = Random.Range(0, vm.lectures.Length);
@@ -53,5 +69,5 @@ public class LectureVideoPlayerScript : MonoBehaviour
         {
             return; 
         }
-  }
+    }
 }

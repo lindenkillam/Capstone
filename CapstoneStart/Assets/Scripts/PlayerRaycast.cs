@@ -29,10 +29,12 @@ public class PlayerRaycast : MonoBehaviour
     public GameObject specialRoomKeyImage, guestRoomKeyImage, flashLightImage, ashtrayImage;  
     public GameObject[] hintPaperImage;
     public GameObject flashLight;
+    public GameObject doorOpenAudio; 
     public Animator pyramidAnim; 
     public int curSilverKeyNum, curGoldKeyNum, curAshtrayNum;
     public TextMeshProUGUI silverKeyNum, goldKeyNum, ashtrayNum;
-    public bool altarCheck; 
+    public bool altarCheck;
+    public Door door1, door2; 
 
     [SerializeField] private NoteManager noteManager;
 
@@ -62,6 +64,8 @@ public class PlayerRaycast : MonoBehaviour
             if (noteManager.isOpen)
             {
                 noteManager.DisableNote();
+
+                doorOpenAudio.SetActive(true);
                 return;
             }
 
@@ -76,6 +80,8 @@ public class PlayerRaycast : MonoBehaviour
                     noteManager = readableItem;
                 }
                 noteManager.ShowNote();
+                door1.requireConditionToOpen = false;
+                door2.requireConditionToOpen = false;
             }
             else if (Physics.Raycast(ray, out hit, 10, keyLayer))
             {

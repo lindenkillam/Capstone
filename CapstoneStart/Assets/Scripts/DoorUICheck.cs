@@ -11,10 +11,11 @@ public class DoorUICheck : MonoBehaviour
     public bool playerHasGuestKey, playerHasSpecialKey;
     public bool isDoorHit;
     public bool doorOpening;
-    public bool findDoorLocked; 
+    public bool findDoorLocked, doorNeedsCondition; 
 
     [Header("Text")]
     public TextMeshProUGUI interactionText, altarText;
+    public string requireCondText = "Door locked, search for clues in the surrounding area"; 
     public string doorLockedText = "Door locked, requires key";
     public string openDoorText = "E to open door";
 
@@ -24,26 +25,36 @@ public class DoorUICheck : MonoBehaviour
     public PlayerRaycast PR;
     public GameObject altar, altarButton;
     bool checkingAltarCondition;
-    public GameObject[] keys; 
+    public GameObject[] keys;
+    public AudioSource doorSound; 
 
     void Update()
     {
         RaycastHit hit;
         hit = hitInfo;
-
+        
         if (isDoorHit)
         {
-            if (findDoorLocked)
+            if (doorNeedsCondition)
             {
-                interactionText.text = doorLockedText;
-                StartCoroutine(FalseDelay());
+                interactionText.text = requireCondText;
+                StartCoroutine(FalseDelayTwo());
             }
             else
             {
-                interactionText.text = openDoorText;
-                interactionText.gameObject.SetActive(true);
-                DoorCheck();
-            }
+                if (findDoorLocked)
+                {
+                    interactionText.text = doorLockedText;
+                    StartCoroutine(FalseDelayOne());
+                    doorSound.Play(); 
+                }
+                else
+                {
+                    interactionText.text = openDoorText;
+                    interactionText.gameObject.SetActive(true);
+                    DoorCheck();
+                }
+            }           
         }
         else
         {
@@ -106,10 +117,33 @@ public class DoorUICheck : MonoBehaviour
                 }
             }
 
-            if (door.requireKey && !doorOpening)
+            if (door.requireConditionToOpen)
             {
-                if ((door.guestRoomDoor && playerHasGuestKey) ||
-                    (door.specialRoomDoor && playerHasSpecialKey))
+                doorNeedsCondition = true; 
+            }
+            else
+            {
+                doorNeedsCondition = false; 
+                if (door.requireKey && !doorOpening)
+                {
+                    if ((door.guestRoomDoor && playerHasGuestKey) ||
+                        (door.specialRoomDoor && playerHasSpecialKey))
+                    {
+                        if (!door.isWardrobe)
+                        {
+                            OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                        }
+                        else
+                        {
+                            OpenWardrobe(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
+                        }
+                    }
+                    else
+                    {
+                        findDoorLocked = true;
+                    }
+                }
+                else if (!door.requireKey && !doorOpening)
                 {
                     if (!door.isWardrobe)
                     {
@@ -119,21 +153,6 @@ public class DoorUICheck : MonoBehaviour
                     {
                         OpenWardrobe(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
                     }
-                }
-                else
-                {
-                    findDoorLocked = true; 
-                }
-            }
-            else if (!door.requireKey && !doorOpening)
-            {
-                if (!door.isWardrobe)
-                {
-                    OpenDoor(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
-                }
-                else
-                {
-                    OpenWardrobe(hitInfo.transform, door.rotatePlus90 ? 90f : -90f);
                 }
             }
         }
@@ -250,9 +269,15 @@ public class DoorUICheck : MonoBehaviour
         }
     }
 
-    IEnumerator FalseDelay()
+    IEnumerator FalseDelayOne()
     {
         yield return new WaitForSeconds(1f); 
         findDoorLocked = false;   
+    }
+
+    IEnumerator FalseDelayTwo()
+    {
+        yield return new WaitForSeconds(1f);
+        doorNeedsCondition = false;
     }
 }
