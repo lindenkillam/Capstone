@@ -21,6 +21,7 @@ public class DoorUICheck : MonoBehaviour
 
     private Coroutine showTextCoroutine;
     private RaycastHit hitInfo;
+    bool altarButtonClose; 
 
     public PlayerRaycast PR;
     public GameObject altar, altarButton;
@@ -66,9 +67,18 @@ public class DoorUICheck : MonoBehaviour
         {
             if (PR.altarCheck)
             {
+                if (!altarButtonClose)
+                {
+                    Cursor.lockState = CursorLockMode.None;
+                    altarButton.SetActive(true);
+                }
+                else
+                {
+                    Cursor.lockState = CursorLockMode.Locked;
+                    altarButton.SetActive(false);
+                }
+
                 altarText.text = "You can now see the hidden things";
-                Cursor.lockState = CursorLockMode.None;
-                altarButton.SetActive(true); 
             }
             else
             {
@@ -77,16 +87,19 @@ public class DoorUICheck : MonoBehaviour
                 altarButton.SetActive(false);
             }
         }
+        else
+        {
+            altarText.text = ""; 
+        }
     }
 
     public void ClickAltarButton()
     {
-        altarButton.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
         for(int i = 0; i < keys.Length; i++)
         {
             keys[i].SetActive(true); 
         }
+        altarButtonClose = true;
     }
     
     void DoorCheck()
@@ -238,7 +251,7 @@ public class DoorUICheck : MonoBehaviour
 
         if(col.gameObject == altar)
         {
-            checkingAltarCondition = true; 
+            checkingAltarCondition = true;
         }
     }
 
