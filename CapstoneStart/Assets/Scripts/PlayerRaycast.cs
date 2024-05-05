@@ -46,11 +46,11 @@ public class PlayerRaycast : MonoBehaviour
 
     void Update()
     {
-        silverKeyNum.text = "x " + curSilverKeyNum.ToString();
-        goldKeyNum.text = "x " + curGoldKeyNum.ToString();
+        silverKeyNum.text = ":" + curSilverKeyNum.ToString() + "/3";
+        goldKeyNum.text = ":" + curGoldKeyNum.ToString() + "/3";
         if (unlockAshtrayNum)
         {
-            ashtrayNum.text = "x " + curAshtrayNum.ToString();
+            ashtrayNum.text = ":" + curAshtrayNum.ToString() + "/3";
         }
         else
         {
@@ -163,6 +163,11 @@ public class PlayerRaycast : MonoBehaviour
                 break;
             case "HintPaper3":
                 hintPaperImage[2].SetActive(true);
+                DisablePost disablePostThree = hitObject.GetComponent<DisablePost>();
+                if (disablePostThree.deletePost)
+                {
+                    disablePostThree.PostDisable();
+                }
                 break;
             case "HintPaper4":
                 hintPaperImage[3].SetActive(true);
