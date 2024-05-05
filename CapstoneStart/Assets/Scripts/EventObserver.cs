@@ -10,7 +10,7 @@ public class EventObserver : MonoBehaviour
     public TMP_FontAsset[] enemyFonts;
 
     public GameObject textPrefab;
-    public GameObject bagUI; 
+    public GameObject bagUI;
 
     void Start()
     {
@@ -26,12 +26,11 @@ public class EventObserver : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             bagUI.SetActive(true);
-
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Locked;
             bagUI.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

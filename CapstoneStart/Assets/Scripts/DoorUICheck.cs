@@ -21,12 +21,13 @@ public class DoorUICheck : MonoBehaviour
 
     private Coroutine showTextCoroutine;
     private RaycastHit hitInfo;
-    bool altarButtonClose; 
+    bool altarActivateInstruction; 
 
     public PlayerRaycast PR;
-    public GameObject altar, altarButton;
+    public GameObject altar, fog;
     bool checkingAltarCondition;
     public GameObject[] keys;
+    public GameObject[] ashtrays; 
     public AudioSource doorSound; 
 
     void Update()
@@ -67,39 +68,41 @@ public class DoorUICheck : MonoBehaviour
         {
             if (PR.altarCheck)
             {
-                if (!altarButtonClose)
+                if (!altarActivateInstruction)
                 {
-                    Cursor.lockState = CursorLockMode.None;
-                    altarButton.SetActive(true);
+                    altarText.text = "Press E to put the ashtrays on the altar";
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        for (int i = 0; i < ashtrays.Length; i++)
+                        {
+                            ashtrays[i].SetActive(true);
+                        }
+
+                        for (int i = 0; i < keys.Length; i++)
+                        {
+                            keys[i].SetActive(true);
+                        }
+
+                        fog.SetActive(true);
+
+                        altarActivateInstruction = true;
+                    }
                 }
                 else
                 {
-                    Cursor.lockState = CursorLockMode.Locked;
-                    altarButton.SetActive(false);
+                    altarText.text = "You can now see the hidden things";
                 }
-
-                altarText.text = "You can now see the hidden things";
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
                 altarText.text = "Need to have something first";
-                altarButton.SetActive(false);
             }
         }
         else
         {
             altarText.text = ""; 
         }
-    }
-
-    public void ClickAltarButton()
-    {
-        for(int i = 0; i < keys.Length; i++)
-        {
-            keys[i].SetActive(true); 
-        }
-        altarButtonClose = true;
     }
     
     void DoorCheck()
