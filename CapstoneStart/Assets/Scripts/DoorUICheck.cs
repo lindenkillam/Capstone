@@ -189,7 +189,7 @@ public class DoorUICheck : MonoBehaviour
 
     IEnumerator RotateDoor(Quaternion targetRotation, Transform target, float RotateFloat)
     {
-        float duration = 1f;
+        float duration = 2.5f;
         float elapsed = 0f;
 
         while (elapsed < duration)
@@ -200,7 +200,7 @@ public class DoorUICheck : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
 
         targetRotation = target.rotation * Quaternion.Euler(0, -RotateFloat, 0);
         elapsed = 0f;
@@ -216,7 +216,7 @@ public class DoorUICheck : MonoBehaviour
 
     IEnumerator RotateWardrobe(Quaternion targetRotation, Transform target, float RotateFloat)
     {
-        float duration = 1f;
+        float duration = 2.5f;
         float elapsed = 0f;
 
         while (elapsed < duration)
@@ -227,7 +227,7 @@ public class DoorUICheck : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
 
         targetRotation = target.rotation * Quaternion.Euler(-RotateFloat, 0, 0);
         elapsed = 0f;

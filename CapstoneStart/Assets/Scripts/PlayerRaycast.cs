@@ -5,7 +5,7 @@ using TMPro;
 public class PlayerRaycast : MonoBehaviour
 {
     Camera cam;
-    public PlayerMovement PM; 
+    public PlayerMovement PM;
     bool yellowKeyCollected = false;
     bool blueKeyCollected = false;
     bool redKeyCollected = false;
@@ -16,8 +16,6 @@ public class PlayerRaycast : MonoBehaviour
     Transform drawerTrans;
     public LayerMask keyLayer, specialWallLayer, noteLayer, tvButtonLayer;
     public GameObject[] TrueBelievers, SadBois, OverworkedGuys, BossComponents;
-    public GameObject textPrefab;
-    public Canvas canvas;
     public GameObject boss;
     public GameObject logoText;
     public ParticleSystem logoParticle;
@@ -26,15 +24,16 @@ public class PlayerRaycast : MonoBehaviour
     DoorUICheck DUC;
     private bool mFaded = false;
     public float Duration = 1f;
-    public GameObject specialRoomKeyImage, guestRoomKeyImage, flashLightImage, ashtrayImage;  
+    public GameObject specialRoomKeyImage, guestRoomKeyImage, flashLightImage, ashtrayImage, noteImage;  
     public GameObject[] hintPaperImage;
     public GameObject flashLight;
     public GameObject doorOpenAudio; 
     public Animator pyramidAnim; 
     public int curSilverKeyNum, curGoldKeyNum, curAshtrayNum;
     public TextMeshProUGUI silverKeyNum, goldKeyNum, ashtrayNum;
+    bool unlockAshtrayNum; 
     public bool altarCheck;
-    public Door door1, door2; 
+    public Door door1, door2;
 
     [SerializeField] private NoteManager noteManager;
 
@@ -42,13 +41,21 @@ public class PlayerRaycast : MonoBehaviour
     {
         cam = Camera.main;
         DUC = GetComponent<DoorUICheck>();
+        unlockAshtrayNum = false; 
     }
 
     void Update()
     {
         silverKeyNum.text = "x " + curSilverKeyNum.ToString();
         goldKeyNum.text = "x " + curGoldKeyNum.ToString();
-        ashtrayNum.text = "x " + curAshtrayNum.ToString();
+        if (unlockAshtrayNum)
+        {
+            ashtrayNum.text = "x " + curAshtrayNum.ToString();
+        }
+        else
+        {
+            ashtrayNum.text = ""; 
+        }
 
         if(curAshtrayNum == 3)
         {
@@ -63,7 +70,7 @@ public class PlayerRaycast : MonoBehaviour
         {
             if (noteManager.isOpen)
             {
-                noteManager.DisableNote();
+                noteManager.StartCoroutine("DisableNote");
 
                 doorOpenAudio.SetActive(true);
                 return;
@@ -80,6 +87,7 @@ public class PlayerRaycast : MonoBehaviour
                     noteManager = readableItem;
                 }
                 noteManager.ShowNote();
+                noteImage.SetActive(true); 
                 door1.requireConditionToOpen = false;
                 door2.requireConditionToOpen = false;
             }
@@ -91,7 +99,7 @@ public class PlayerRaycast : MonoBehaviour
             }
             else if (Physics.Raycast(ray, out hit, 10, specialWallLayer))
             {
-                CheckSpecialWall(hit.transform.tag);
+                CheckSpecialWall();
             }
             else if(Physics.Raycast(ray, out hit, 10, tvButtonLayer))
             {
@@ -158,6 +166,8 @@ public class PlayerRaycast : MonoBehaviour
                 flashLightImage.SetActive(true);
                 break;
             case "Ashtray":
+                ashtrayImage.SetActive(true);
+                unlockAshtrayNum = true; 
                 curAshtrayNum += 1; 
                 break;
         }
@@ -245,22 +255,11 @@ public class PlayerRaycast : MonoBehaviour
         }
     }
 
-    void CheckSpecialWall(string wallTag)
+    void CheckSpecialWall()
     {
         if (goldKeyCollected && redKeyCollected && blueKeyCollected && yellowKeyCollected)
         {
             pyramidAnim.SetTrigger("Trigger");
-            if (pyramidAnim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !pyramidAnim.IsInTransition(0))
-            {
-                GameObject winText = Instantiate(textPrefab, canvas.transform, false);
-                winText.GetComponent<TextMeshProUGUI>().text = "You escaped!!";
-
-                RectTransform rectTransform = winText.GetComponent<RectTransform>();
-                rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
-                rectTransform.anchorMax = new Vector2(0.5f, 0.5f);
-                rectTransform.pivot = new Vector2(0.5f, 0.5f);
-                rectTransform.anchoredPosition = Vector2.zero;
-            }    
         }
     }
 }

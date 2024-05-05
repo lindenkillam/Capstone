@@ -54,7 +54,8 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: Event GameOver has a time (8.291667) outside the clip's
+      valid range (0.000000..8.250980). It will never be fired
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -154,7 +155,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.5
+    globalScale: 50
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

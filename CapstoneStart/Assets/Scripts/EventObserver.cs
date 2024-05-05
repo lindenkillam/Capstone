@@ -24,10 +24,13 @@ public class EventObserver : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.B))
         {
+            Cursor.lockState = CursorLockMode.None;
             bagUI.SetActive(true);
+
         }
         else
         {
+            Cursor.lockState = CursorLockMode.Locked;
             bagUI.SetActive(false);
         }
     }
