@@ -13,9 +13,9 @@ public class FlashLightController : MonoBehaviour
     void Update()
     {
         myLight.intensity += Input.mouseScrollDelta.y * 1;
-        if (myLight.intensity >= 3)
+        if (myLight.intensity >= 2)
         {
-            myLight.intensity = 3;
+            myLight.intensity = 2;
         }
     }
 }
