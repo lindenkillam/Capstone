@@ -45,6 +45,8 @@ public class NoteManager : MonoBehaviour
             noteCanvas.SetActive(false);
             //mouseLook.mouseSensitivity = 500f;
             player.enabled = true;
+
+            note.SetActive(false);
             if (!noteObtained)
             {
                 onKeyObtainText.text = note.name.ToString() + " obtained";
@@ -53,10 +55,7 @@ public class NoteManager : MonoBehaviour
                 FadeOut();
                 noteObtained = true; 
             }
-
             isOpen = false;
-
-            note.SetActive(false);
         }
     }
 

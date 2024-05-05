@@ -6,12 +6,14 @@ public class WelcomeVideoPlayer : MonoBehaviour
     private VideoPlayer videoPlayer;
     //[SerializeField] Raycasting raycasting;
 
-    public float maxDistance = 6f;
-    public float minDistance = 3f;
-    GameObject player; 
+    public float maxDistance = 25f;
+    public float minDistance = 5f;
+    GameObject player;
+    AudioSource AS; 
 
     void Start()
     {
+        AS = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
         videoPlayer = this.GetComponent<UnityEngine.Video.VideoPlayer>();
     }
@@ -20,17 +22,19 @@ public class WelcomeVideoPlayer : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        float volume = Mathf.Clamp01(1f - Mathf.InverseLerp(minDistance, maxDistance, distance));
+        float _volume = Mathf.Clamp01(1f - Mathf.InverseLerp(minDistance, maxDistance, distance));
 
-        videoPlayer.SetDirectAudioVolume(0, volume);
+        _volume = Mathf.Min(_volume, 0.5f);
+
+        AS.volume = _volume;
 
         if (distance >= maxDistance)
         {
-            videoPlayer.SetDirectAudioVolume(0, 0f);
+            AS.volume = 0f;
         }
         else if (distance <= minDistance)
         {
-            videoPlayer.SetDirectAudioVolume(0, 0f);
+            AS.volume = 0.5f;
         }
     }
 

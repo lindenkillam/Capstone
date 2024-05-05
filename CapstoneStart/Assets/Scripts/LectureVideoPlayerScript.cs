@@ -6,21 +6,23 @@ public class LectureVideoPlayerScript : MonoBehaviour
 {
     private VideoPlayer videoPlayer;
     public VideoManagerScript vm;
+    AudioSource AS; 
     int lastLecture = -1, newLecture;
     public bool hasKey;
-    public float maxDistance = 6f; 
-    public float minDistance = 3f;
+    public float maxDistance = 25f; 
+    public float minDistance = 5f;
     GameObject player; 
 
     void Awake()
     {
+        AS = GetComponent<AudioSource>(); 
         player = GameObject.FindGameObjectWithTag("Player"); 
         videoPlayer = this.GetComponent<UnityEngine.Video.VideoPlayer>();
 
         newLecture = Random.Range(0, vm.lectures.Length);
         Debug.Log("New lecture chosen: Lecture #" + newLecture);
         lastLecture = newLecture;
-
+        
         videoPlayer.clip = vm.lectures[newLecture];
         //videoPlayer.Play();
     }
@@ -29,41 +31,46 @@ public class LectureVideoPlayerScript : MonoBehaviour
     {
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
-        float volume = Mathf.Clamp01(1f - Mathf.InverseLerp(minDistance, maxDistance, distance));
+        float _volume = Mathf.Clamp01(1f - Mathf.InverseLerp(minDistance, maxDistance, distance));
 
-        videoPlayer.SetDirectAudioVolume(0, volume);
+        _volume = Mathf.Min(_volume, 0.5f);
+
+        AS.volume = _volume;
 
         if (distance >= maxDistance)
         {
-            videoPlayer.SetDirectAudioVolume(0, 0f);
+            AS.volume = 0f;
         }
         else if (distance <= minDistance)
         {
-            videoPlayer.SetDirectAudioVolume(0, 0f);
+            AS.volume = 0.5f;
         }
     }
 
     public void PlayVideo()
     {
-        if (!videoPlayer.isPlaying && videoPlayer.isPrepared)
+
+        newLecture = Random.Range(0, vm.lectures.Length);
+
+        if (newLecture == lastLecture)
+            return;
+
+        /*
+        do
         {
             newLecture = Random.Range(0, vm.lectures.Length);
+        } while(newLecture == lastLecture);
+        */
 
-            if (newLecture == lastLecture)
-                return;
+        Debug.Log("New lecture chosen: Lecture #" + newLecture);
+        lastLecture = newLecture;
 
-            /*
-            do
-            {
-                newLecture = Random.Range(0, vm.lectures.Length);
-            } while(newLecture == lastLecture);
-            */
+        videoPlayer.clip = vm.lectures[newLecture];
+        videoPlayer.Play();
 
-            Debug.Log("New lecture chosen: Lecture #" + newLecture);
-            lastLecture = newLecture;
-
-            videoPlayer.clip = vm.lectures[newLecture];
-            videoPlayer.Play();
+        if (!videoPlayer.isPlaying && videoPlayer.isPrepared)
+        {
+            
         }
         else if (videoPlayer.isPlaying)
         {

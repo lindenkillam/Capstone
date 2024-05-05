@@ -93,7 +93,7 @@ public class PlayerRaycast : MonoBehaviour
             }
             else if (Physics.Raycast(ray, out hit, 10, keyLayer))
             {
-                StartCoroutine(CollectKey(hit.transform.tag));
+                StartCoroutine(CollectKey(hit.transform.tag, hit.transform.gameObject));
                 onKeyObtainText.text = hit.transform.name.ToString() + " obtained";
                 Destroy(hit.collider.gameObject);
             }
@@ -105,6 +105,7 @@ public class PlayerRaycast : MonoBehaviour
             {
                 LectureVideoPlayerScript videoScript = hit.collider.gameObject.GetComponent<LectureVideoPlayerScript>();
                 videoScript.PlayVideo();
+
                 if (!drawerChecked && videoScript.hasKey)
                 {
                     drawerTrans = hit.transform.GetChild(0).gameObject.transform;
@@ -115,7 +116,7 @@ public class PlayerRaycast : MonoBehaviour
         }
     }
 
-    IEnumerator CollectKey(string keyTag)
+    IEnumerator CollectKey(string keyTag, GameObject hitObject)
     {
         switch (keyTag)
         {
@@ -148,6 +149,11 @@ public class PlayerRaycast : MonoBehaviour
             case "SpecialRoomKey":
                 DUC.playerHasSpecialKey = true;
                 specialRoomKeyImage.SetActive(true);
+                DisablePost disablePostOne = hitObject.GetComponent<DisablePost>();
+                if (disablePostOne.deletePost)
+                {
+                    disablePostOne.PostDisable();
+                }
                 break;
             case "HintPaper1":
                 hintPaperImage[0].SetActive(true); 
@@ -168,7 +174,12 @@ public class PlayerRaycast : MonoBehaviour
             case "Ashtray":
                 ashtrayImage.SetActive(true);
                 unlockAshtrayNum = true; 
-                curAshtrayNum += 1; 
+                curAshtrayNum += 1;
+                DisablePost disablePostTwo = hitObject.GetComponent<DisablePost>();
+                if (disablePostTwo.deletePost)
+                {
+                    disablePostTwo.PostDisable(); 
+                }
                 break;
         }
 

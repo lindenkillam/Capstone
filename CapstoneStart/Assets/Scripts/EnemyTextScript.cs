@@ -20,7 +20,7 @@ public class EnemyTextScript : MonoBehaviour
     {
         if(thisText.alpha > alphaMin)
         {
-        thisText.color = thisText.color -
+            thisText.color = thisText.color -
             new Color(0, 0, 0, .1f*Time.deltaTime);
         }
     }

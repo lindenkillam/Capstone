@@ -27,7 +27,7 @@ public class WaterFaucet : MonoBehaviour
                 audioSource.Play();
                 if (spawnHint)
                 {
-                    Instantiate(hintPaper, transform.position, Quaternion.identity);
+                    hintPaper.SetActive(true);
                     spawnHint = false;  
                 }
             }
