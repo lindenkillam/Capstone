@@ -7,7 +7,7 @@ public class HoffmanDeviceController : MonoBehaviour
 {
     public AudioSource denySound; 
     public GameObject player, hoffmanDeviceDisplay, hoffmanInstruction;
-    public TextMeshProUGUI hoffmanText, timeText; 
+    public TextMeshProUGUI hoffmanText, timeText, readyText; 
     public float timeRemaining = 301; 
     public DoorUICheck DC;
     public bool canBeUsed;
@@ -16,7 +16,8 @@ public class HoffmanDeviceController : MonoBehaviour
     bool playerIn;
     public bool cleansingCanStart;
     bool timeIsRunning;
-    bool displayingHoffman; 
+    bool displayingHoffman;
+    public Light light; 
 
     void Start()
     {
@@ -27,52 +28,38 @@ public class HoffmanDeviceController : MonoBehaviour
     {
         if (playerIn)
         {
-            if (CC.isPlayerTainted)
-            {
                 if (canBeUsed)
                 {
                     hoffmanText.text = "Press E to use the Hoffman device";
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                        displayingHoffman = true; 
-                        GetComponent<Collider>().enabled = false; 
-                        hoffmanDeviceDisplay.SetActive(true);
-                        hoffmanInstruction.SetActive(true);
-                        cleansingCanStart = true;
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.Escape))
-                    {
-                        hoffmanDeviceDisplay.SetActive(false);
-                        hoffmanInstruction.SetActive(false);
-                        cleansingCanStart = false;
-                        HC.Reset();
-                        displayingHoffman = false;
+                        if (CC.isPlayerTainted)
+                        {
+                            displayingHoffman = true;
+                            GetComponent<Collider>().enabled = false;
+                            hoffmanDeviceDisplay.SetActive(true);
+                            hoffmanInstruction.SetActive(true);
+                            cleansingCanStart = true;
+                        }
+                        else
+                        {
+                            HC.resetEverything = true; 
+                            denySound.Play();
+                            hoffmanText.text = "The soul does not seem to be tainted <br>There's no need to use the Hoffman device";
+                        }
                     }
                 }
                 else
                 {
-                    hoffmanDeviceDisplay.SetActive(false);
-                    hoffmanInstruction.SetActive(false);
-                    cleansingCanStart = false;
-
-                    displayingHoffman = false;
                     denySound.Play();
+                    TurnOffHoffman();
+                    
                     hoffmanText.text = "Hoffman device is cooling down, come back later to use it";
                 }
-            }
-            else
-            {
-                displayingHoffman = false;
-                cleansingCanStart = false;
-                denySound.Play();
-                hoffmanText.text = "The soul does not seem to be tainted <br>There's no need to use the Hoffman device";
-            }
         }
         else
         {
-            displayingHoffman = false;
-            cleansingCanStart = false;
+            TurnOffHoffman(); 
             hoffmanText.text = "";
         }
 
@@ -83,22 +70,43 @@ public class HoffmanDeviceController : MonoBehaviour
 
         if (HC.resetEverything)
         {
+            cleansingCanStart = false; 
+            HC.Reset();
+            light.color = Color.blue; 
+            readyText.enabled = false;
+            timeText.enabled = true; 
             StartCoroutine(DisplayTime(timeRemaining));
+        }
+        else
+        {
+            light.color = Color.green;
+            timeText.enabled = false;
+            readyText.enabled = true; 
         }
 
         if (timeIsRunning)
         {
             if (timeRemaining > 0)
             {
+                canBeUsed = false; 
                 timeRemaining -= Time.deltaTime;
             }
-            else
+            else 
             {
                 timeRemaining = 0;
                 timeIsRunning = false; 
                 canBeUsed = true;
+                HC.resetEverything = false; 
             }
         }
+    }
+
+    public void TurnOffHoffman()
+    {
+        hoffmanDeviceDisplay.SetActive(false);
+        hoffmanInstruction.SetActive(false);
+        displayingHoffman = false;
+        cleansingCanStart = false;
     }
 
     IEnumerator DisplayTime(float timeToDisplay)

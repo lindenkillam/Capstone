@@ -24,7 +24,7 @@ public class PlayerRaycast : MonoBehaviour
     DoorUICheck DUC;
     private bool mFaded = false;
     public float Duration = 1f;
-    public GameObject specialRoomKeyImage, guestRoomKeyImage, flashLightImage, ashtrayImage, noteImage;  
+    public GameObject specialRoomKeyImage, guestRoomKeyImage, flashLightImage, ashtrayImage, ashtrayNumText, noteImage;  
     public GameObject[] hintPaperImage;
     public GameObject flashLight;
     public GameObject doorOpenAudio; 
@@ -178,6 +178,7 @@ public class PlayerRaycast : MonoBehaviour
                 break;
             case "Ashtray":
                 ashtrayImage.SetActive(true);
+                ashtrayNumText.SetActive(true);
                 unlockAshtrayNum = true; 
                 curAshtrayNum += 1;
                 DisablePost disablePostTwo = hitObject.GetComponent<DisablePost>();

@@ -13,7 +13,6 @@ public class HandleController : MonoBehaviour
     bool isHit = false; 
     public int isHitCount; 
     public Quaternion originalRotation;
-    public bool succeeded;
     public HoffmanDeviceController HDC;
     public MouseLook ML; 
     public CharacterController characterC;
@@ -28,7 +27,10 @@ public class HandleController : MonoBehaviour
     public CanvasGroup cg;
     private bool isRotatingForward = false;
     private bool stopRotating = false;
-    bool playingAnim; 
+    bool playingAnim;
+    public CheckChild CC;
+    public AudioSource denySound;
+    bool usedOnce; 
 
     void Start()
     {
@@ -55,9 +57,9 @@ public class HandleController : MonoBehaviour
                 deviceSound.clip = clips[0];
                 deviceSound.Play();
                 isHitCount = 0;
-                SetRandomHitZonePosition();
+                SetInitialRandomHitZonePosition();
                 StartHandleRotation();
-            }
+             }
         }
         
         if (Input.GetKeyDown(KeyCode.Space) && isHit && !playingAnim && isRotatingForward)
@@ -69,23 +71,46 @@ public class HandleController : MonoBehaviour
             Debug.Log("Hit once!");
             if (isHitCount == 2)
             {
-                succeeded = true;
                 StopHandleRotation(); // Call StopHandleRotation when isHitCount reaches 2
+                CC.CleansingTexts(); 
                 StartCoroutine(PlayAnimation());
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!usedOnce)
+            {
+                HDC.TurnOffHoffman();
+            }
+            else
+            {
+                resetEverything = true; 
+                HDC.TurnOffHoffman();
             }
         }
     }
 
     public void Reset()
     {
+        cleansingText.text = "";
         EO.canCheckBag = true;
         characterC.enabled = true;
         ML.enabled = true;
         cg.alpha = 1f;
-        isHitCount = 0; 
-        displayRotationCount = 3; 
+        isHitCount = 0;
+        usedOnce = false; 
+        isRotatingForward = false;
         hoffmanCollider.enabled = true;
         transform.localRotation = originalRotation; 
+    }
+
+    void SetInitialRandomHitZonePosition()
+    {
+        int randomIndex = Random.Range(1, 4);
+        hitZone.transform.localPosition = hitPos[randomIndex].transform.localPosition;
+        hitZone.transform.localRotation = hitPos[randomIndex].transform.localRotation;
+        hitZone.SetActive(true);
     }
 
     void SetRandomHitZonePosition()
@@ -125,6 +150,7 @@ public class HandleController : MonoBehaviour
 
     IEnumerator PlayAnimation()
     {
+        usedOnce = true; 
         anim.SetTrigger("Trig");
         playingAnim = true; 
         cleansingText.text = "Cleasing soul..."; 
@@ -138,7 +164,7 @@ public class HandleController : MonoBehaviour
         if (totalRotationCount == 3)
         {
             resetEverything = true;
-            HDC.canBeUsed = false;
+            //HDC.canBeUsed = false;
             Reset();
         }
     }
