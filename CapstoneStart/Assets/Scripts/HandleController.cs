@@ -161,11 +161,9 @@ public class HandleController : MonoBehaviour
         isRotatingForward = false; 
         playingAnim = false;
 
-        if (totalRotationCount == 3)
+        if (totalRotationCount == 3 || displayRotationCount == 0)
         {
             resetEverything = true;
-            //HDC.canBeUsed = false;
-            Reset();
         }
     }
 

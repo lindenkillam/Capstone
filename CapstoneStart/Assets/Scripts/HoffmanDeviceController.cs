@@ -43,7 +43,7 @@ public class HoffmanDeviceController : MonoBehaviour
                         }
                         else
                         {
-                            HC.resetEverything = true; 
+                            //HC.resetEverything = true; 
                             denySound.Play();
                             hoffmanText.text = "The soul does not seem to be tainted <br>There's no need to use the Hoffman device";
                         }
