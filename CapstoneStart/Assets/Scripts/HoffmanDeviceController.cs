@@ -7,7 +7,7 @@ public class HoffmanDeviceController : MonoBehaviour
 {
     public AudioSource denySound; 
     public GameObject player, hoffmanDeviceDisplay, hoffmanInstruction;
-    public TextMeshProUGUI hoffmanText, timeText, readyText; 
+    public TextMeshProUGUI hoffmanText, timeText, readyText, notTaintedText; 
     public float timeRemaining = 301; 
     public DoorUICheck DC;
     public bool canBeUsed;
@@ -45,7 +45,7 @@ public class HoffmanDeviceController : MonoBehaviour
                         {
                             //HC.resetEverything = true; 
                             denySound.Play();
-                            hoffmanText.text = "The soul does not seem to be tainted <br>There's no need to use the Hoffman device";
+                            notTaintedText.text = "The soul does not seem to be tainted <br>There's no need to use the Hoffman device";
                         }
                     }
                 }
@@ -59,7 +59,8 @@ public class HoffmanDeviceController : MonoBehaviour
         }
         else
         {
-            TurnOffHoffman(); 
+            TurnOffHoffman();
+            notTaintedText.text = ""; 
             hoffmanText.text = "";
         }
 
