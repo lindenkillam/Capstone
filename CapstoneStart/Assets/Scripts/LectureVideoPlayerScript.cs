@@ -11,7 +11,7 @@ public class LectureVideoPlayerScript : MonoBehaviour
     public bool hasKey;
     public float maxDistance = 25f; 
     public float minDistance = 5f;
-    GameObject player; 
+    GameObject player;
 
     void Awake()
     {
@@ -45,6 +45,7 @@ public class LectureVideoPlayerScript : MonoBehaviour
         {
             AS.volume = 0.5f;
         }
+
     }
 
     public void PlayVideo()
@@ -67,14 +68,5 @@ public class LectureVideoPlayerScript : MonoBehaviour
 
         videoPlayer.clip = vm.lectures[newLecture];
         videoPlayer.Play();
-
-        if (!videoPlayer.isPlaying && videoPlayer.isPrepared)
-        {
-            
-        }
-        else if (videoPlayer.isPlaying)
-        {
-            return; 
-        }
     }
 }

@@ -9,7 +9,7 @@ public class WelcomeVideoPlayer : MonoBehaviour
     public float maxDistance = 25f;
     public float minDistance = 5f;
     GameObject player;
-    AudioSource AS; 
+    AudioSource AS;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class WelcomeVideoPlayer : MonoBehaviour
         {
             AS.volume = 0.5f;
         }
+
     }
 
     private void OnTriggerStay(Collider other)

@@ -34,7 +34,7 @@ public class PlayerRaycast : MonoBehaviour
     bool unlockAshtrayNum; 
     public bool altarCheck;
     public Door door1, door2;
-
+    public bool atHoffman; 
     [SerializeField] private NoteManager noteManager;
 
     void Start()
@@ -87,7 +87,7 @@ public class PlayerRaycast : MonoBehaviour
                     noteManager = readableItem;
                 }
                 noteManager.ShowNote();
-                noteImage.SetActive(true); 
+                noteImage.SetActive(true);
                 door1.requireConditionToOpen = false;
                 door2.requireConditionToOpen = false;
             }
@@ -101,7 +101,7 @@ public class PlayerRaycast : MonoBehaviour
             {
                 CheckSpecialWall();
             }
-            else if(Physics.Raycast(ray, out hit, 10, tvButtonLayer))
+            else if (Physics.Raycast(ray, out hit, 10, tvButtonLayer))
             {
                 LectureVideoPlayerScript videoScript = hit.collider.gameObject.GetComponent<LectureVideoPlayerScript>();
                 videoScript.PlayVideo();

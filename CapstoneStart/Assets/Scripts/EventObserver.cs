@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Video;
 
 public class EventObserver : MonoBehaviour
 {
@@ -11,9 +12,13 @@ public class EventObserver : MonoBehaviour
 
     public GameObject textPrefab;
     public GameObject bagUI;
+    public VideoPlayer[] videoPlayers;
+    public VideoPlayer WelcomeTV;
+    public bool canCheckBag; 
 
     void Start()
     {
+        canCheckBag = true; 
         SoulNotifier.OnTrueBelieverCaptured += TrueBelieverCaptured;
         SoulNotifier.OnSadBoiCaptured += SadBoiCaptured;
         SoulNotifier.OnOverworkedCaptured += OverworkedCaptured;
@@ -22,16 +27,29 @@ public class EventObserver : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.B))
+        if (canCheckBag)
         {
-            Cursor.lockState = CursorLockMode.None;
-            bagUI.SetActive(true);
+            if (Input.GetKey(KeyCode.B))
+            {
+                PauseGame();
+            }
+            else
+            {
+                ResumeGame();
+            }
         }
-        else
-        {
-            bagUI.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-        }
+    }
+
+    void PauseGame()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        bagUI.SetActive(true);
+    }
+
+    void ResumeGame()
+    {
+        bagUI.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void TrueBelieverCaptured()

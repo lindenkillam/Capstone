@@ -28,7 +28,7 @@ public class DoorUICheck : MonoBehaviour
     bool checkingAltarCondition;
     public GameObject[] keys;
     public GameObject[] ashtrays; 
-    public AudioSource doorSound; 
+    public AudioSource doorSound;
 
     void Update()
     {
@@ -90,7 +90,7 @@ public class DoorUICheck : MonoBehaviour
                 }
                 else
                 {
-                    altarText.text = "You can now see the hidden things";
+                    altarText.text = "You have unlocked the magical eyes <br>now you can see the hidden things";
                 }
             }
             else
