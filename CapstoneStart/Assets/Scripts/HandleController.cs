@@ -62,17 +62,20 @@ public class HandleController : MonoBehaviour
              }
         }
         
-        if (Input.GetKeyDown(KeyCode.Space) && isHit && !playingAnim && isRotatingForward)
+        if (Input.GetKeyDown(KeyCode.Space) && isHit && !playingAnim && isRotatingForward) 
         {
+            Debug.Log("isHit = " + isHit); 
+            //?????????
             isHitCount += 1;
+            Debug.Log("Hit once!");
             deviceSound.clip = clips[1];
             deviceSound.Play();
             SetRandomHitZonePosition();
-            Debug.Log("Hit once!");
             if (isHitCount == 2)
             {
-                StopHandleRotation(); // Call StopHandleRotation when isHitCount reaches 2
-                StartCoroutine(PlayAnimation());
+                StopHandleRotation();
+                Debug.Log("PLEASE STOP!");
+                StartCoroutine(PlayAnimation(isHitCount));
             }
         }
 
@@ -80,10 +83,12 @@ public class HandleController : MonoBehaviour
         {
             if (!usedOnce)
             {
+                Debug.Log("Turn off!");
                 HDC.TurnOffHoffman();
             }
             else
             {
+                Debug.Log("RESET!");
                 resetEverything = true; 
                 HDC.TurnOffHoffman();
             }
@@ -147,7 +152,7 @@ public class HandleController : MonoBehaviour
         stopRotating = true; // Set stopRotating to true
     }
 
-    IEnumerator PlayAnimation()
+    IEnumerator PlayAnimation(int hitCount)
     {
         usedOnce = true; 
         anim.SetTrigger("Trig");
@@ -156,7 +161,7 @@ public class HandleController : MonoBehaviour
         CC.CleansingTexts();
         yield return new WaitForSeconds(5f);
         cleansingText.text = "Soul cleanse process over, " + displayRotationCount.ToString() + " rounds left";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds((float)hitCount);
         cleansingText.text = "";
         isRotatingForward = false; 
         playingAnim = false;
