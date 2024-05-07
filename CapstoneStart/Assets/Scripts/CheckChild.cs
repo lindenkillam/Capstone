@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI; 
 using TMPro; 
 
 public class CheckChild : MonoBehaviour
 {
     public bool isPlayerTainted;
     public float fadeDuration = 5f;
-    public GameObject ps;
-    GameObject particle; 
+    Canvas myCanvas; 
+
+    void Start()
+    {
+        myCanvas = GetComponent<Canvas>(); 
+    }
 
     void Update()
     {
@@ -35,22 +40,15 @@ public class CheckChild : MonoBehaviour
 
         TextMeshProUGUI textMeshProUGUI = randomChild.GetComponent<TextMeshProUGUI>();
 
-        if (textMeshProUGUI != null)
-        {
-            RectTransform rectTransform = textMeshProUGUI.rectTransform;
-
-            Vector3 position = rectTransform.position;
-
-            Vector3 screenPosition = RectTransformUtility.WorldToScreenPoint(Camera.main, position);
-
-            particle = Instantiate(ps, screenPosition, Quaternion.identity);
-        }
+        ParticleSystem ps = textMeshProUGUI.transform.GetComponentInChildren<ParticleSystem>();
 
         if (canvasGroup != null)
         {
             float elapsedTime = 0f;
             float startAlpha = 1f;
             float targetAlpha = 0f;
+
+            ps.Play(); 
 
             while (elapsedTime < fadeDuration)
             {
@@ -61,8 +59,7 @@ public class CheckChild : MonoBehaviour
 
             canvasGroup.alpha = targetAlpha;
 
-            Destroy(particle); 
-
+            yield return new WaitForSeconds(0.5f);
             Destroy(randomChild.gameObject);
         }
     }

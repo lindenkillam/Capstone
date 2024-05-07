@@ -41,6 +41,7 @@ public class DoorUICheck : MonoBehaviour
             {
                 interactionText.text = requireCondText;
                 StartCoroutine(FalseDelayTwo());
+                doorSound.Play();
             }
             else
             {
@@ -96,7 +97,7 @@ public class DoorUICheck : MonoBehaviour
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
-                altarText.text = "Need to have something first";
+                altarText.text = "You need to get something first";
             }
         }
         else

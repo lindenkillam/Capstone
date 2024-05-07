@@ -72,7 +72,6 @@ public class HandleController : MonoBehaviour
             if (isHitCount == 2)
             {
                 StopHandleRotation(); // Call StopHandleRotation when isHitCount reaches 2
-                CC.CleansingTexts(); 
                 StartCoroutine(PlayAnimation());
             }
         }
@@ -153,7 +152,8 @@ public class HandleController : MonoBehaviour
         usedOnce = true; 
         anim.SetTrigger("Trig");
         playingAnim = true; 
-        cleansingText.text = "Cleasing soul..."; 
+        cleansingText.text = "Cleasing soul...";
+        CC.CleansingTexts();
         yield return new WaitForSeconds(5f);
         cleansingText.text = "Soul cleanse process over, " + displayRotationCount.ToString() + " rounds left";
         yield return new WaitForSeconds(2f);
