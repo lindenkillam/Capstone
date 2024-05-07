@@ -65,7 +65,7 @@ public class HandleController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isHit && !playingAnim && isRotatingForward) 
         {
             Debug.Log("isHit = " + isHit); 
-            //?????????
+            //PLEASE HIT?????????
             isHitCount += 1;
             Debug.Log("Hit once!");
             deviceSound.clip = clips[1];
