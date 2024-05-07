@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class QuoteManager : MonoBehaviour
@@ -14,10 +15,12 @@ public class QuoteManager : MonoBehaviour
     public string[] OverworkedQuotes = {"Please give whatever you can.", "Our ensigns need new uniforms, please help.",
         "Please use the Hoffman method to wash the windows.", "The Valley Institute Women's Auxiliary meets Sundays at noon.",
         "If we cannot get our stats up by noon on Sunday we're all at half rations!!", "Our filing system needs to be fixed NOW. NOW NOW NOW.",
-        "What does Hoffman say about being overworked?!"};
+        "What does Hoffman say about being overworked?!", "Does anyone know how to pilot a ship?!", "Why do I always have to pick up for low producers...",
+        "120 hours worked last week, I'm falling behind...", "I never needed a break, I could keep going.", "The Institute can count on me!"};
 
     public string[] SadBoiQuotes = {"Why haven't they come back...", "Why is the Institute programming failing me...",
         "I never made it to Ascended, but at least I was saving the planet.", "I didn't get to travel, but at least I was saving the planet.",
-        "How in hell did all of my children abandon me for an unclean life!!", "I was promised total freedom and all I got was this?!",
-        "I never made it... Why, Hoffman?", "The programming never worked for me, but it was only me...", "I still haven't achieved Godhood. Someday..."};
+        "How in hell did all of my children abandon me for a degenerative life!!", "I was promised total freedom and all I got was this?!",
+        "I never made it... Why, Hoffman?", "The programming never worked for me, but it was only me...", "I still haven't achieved Godhood. Someday...",
+        "My previous life was useful, right?", "Did I do good, Mr. Hoffman?"};
 }
