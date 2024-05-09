@@ -1,0 +1,801 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TetaviMatLitTransparent
+  m_Shader: {fileID: 4800000, guid: 79275291ea7fd4442bc87844faba9e03, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - SHOW_GLOBAL
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_Hair:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_Hat:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_arms:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_eyes:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_face:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_gloves:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_hair:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_hat:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_legs:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_lower_clothes:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_mouth:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_shirt:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_shoes:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_socks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_torso_skin:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_unknown1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_unknown2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_unknown3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_unknown4:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap_upper_clothes:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GradientTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetalnessMap:
+        m_Texture: {fileID: 2800000, guid: 5bd557948ba19ad4aa63cfddf370b37d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetalnessMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetalnessMap3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NoiseTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalMap3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RoughnessMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RoughnessMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RoughnessMap3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexUV:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexY:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - Blur: 0
+    - Expend_1_Global: 1
+    - Hide_Hair: 0
+    - Hide_Hat: 0
+    - Hide_coat: 0
+    - Hide_dress: 0
+    - Hide_face: 0
+    - Hide_glasses: 0
+    - Hide_gloves: 0
+    - Hide_hair: 0
+    - Hide_hat: 0
+    - Hide_left_arm: 0
+    - Hide_left_eye: 0
+    - Hide_left_leg: 0
+    - Hide_left_shoe: 0
+    - Hide_mouth: 0
+    - Hide_pants: 0
+    - Hide_right_arm: 0
+    - Hide_right_eye: 0
+    - Hide_right_leg: 0
+    - Hide_right_shoe: 0
+    - Hide_scarf: 0
+    - Hide_skirt: 0
+    - Hide_socks: 0
+    - Hide_torso_skin: 0
+    - Hide_unknown1: 0
+    - Hide_unknown2: 0
+    - Hide_unknown3: 0
+    - Hide_unknown4: 0
+    - Hide_upper_clothes: 0
+    - Hue_coat: 1
+    - Hue_dress: 1
+    - Hue_face: 0
+    - Hue_glasses: 1
+    - Hue_gloves: 0
+    - Hue_hair: 0
+    - Hue_hat: 0
+    - Hue_left_arm: 0
+    - Hue_left_eye: 0
+    - Hue_left_leg: 0
+    - Hue_left_shoe: 0
+    - Hue_mouth: 1
+    - Hue_pants: 1
+    - Hue_right_arm: 1
+    - Hue_right_eye: 1
+    - Hue_right_leg: 1
+    - Hue_right_shoe: 1
+    - Hue_scarf: 1
+    - Hue_skirt: 1
+    - Hue_socks: 0
+    - Hue_torso_skin: 1
+    - Hue_unknown1: 1
+    - Hue_unknown2: 1
+    - Hue_unknown3: 1
+    - Hue_unknown4: 1
+    - Hue_upper_clothes: 0
+    - MetallicBias_coat: 0
+    - MetallicBias_dress: 0
+    - MetallicBias_face: 0
+    - MetallicBias_glasses: 0
+    - MetallicBias_gloves: 0
+    - MetallicBias_hair: 0
+    - MetallicBias_hat: 0
+    - MetallicBias_left_arm: 0
+    - MetallicBias_left_eye: 0
+    - MetallicBias_left_leg: 0
+    - MetallicBias_left_shoe: 0
+    - MetallicBias_mouth: 0
+    - MetallicBias_pants: 0
+    - MetallicBias_right_arm: 0
+    - MetallicBias_right_eye: 0
+    - MetallicBias_right_leg: 0
+    - MetallicBias_right_shoe: 0
+    - MetallicBias_scarf: 0
+    - MetallicBias_skirt: 0
+    - MetallicBias_socks: 0
+    - MetallicBias_torso_skin: 0
+    - MetallicBias_unknown1: 0
+    - MetallicBias_unknown2: 0
+    - MetallicBias_unknown3: 0
+    - MetallicBias_unknown4: 0
+    - MetallicBias_upper_clothes: 0
+    - MetallicScale_coat: 0
+    - MetallicScale_dress: 0
+    - MetallicScale_face: 0
+    - MetallicScale_glasses: 0
+    - MetallicScale_gloves: 0
+    - MetallicScale_hair: 0
+    - MetallicScale_hat: 0
+    - MetallicScale_left_arm: 0
+    - MetallicScale_left_eye: 0
+    - MetallicScale_left_leg: 0
+    - MetallicScale_left_shoe: 0
+    - MetallicScale_mouth: 0
+    - MetallicScale_pants: 0
+    - MetallicScale_right_arm: 0
+    - MetallicScale_right_eye: 0
+    - MetallicScale_right_leg: 0
+    - MetallicScale_right_shoe: 0
+    - MetallicScale_scarf: 0
+    - MetallicScale_skirt: 0
+    - MetallicScale_socks: 0
+    - MetallicScale_torso_skin: 0
+    - MetallicScale_unknown1: 0
+    - MetallicScale_unknown2: 0
+    - MetallicScale_unknown3: 0
+    - MetallicScale_unknown4: 0
+    - MetallicScale_upper_clothes: 0
+    - Normal_Map_Intensity: 1
+    - Sample_radius: 2.5
+    - Saturation_coat: 1
+    - Saturation_dress: 1
+    - Saturation_face: 0
+    - Saturation_glasses: 1
+    - Saturation_gloves: 0
+    - Saturation_hair: 0
+    - Saturation_hat: 0
+    - Saturation_left_arm: 0
+    - Saturation_left_eye: 0
+    - Saturation_left_leg: 0
+    - Saturation_left_shoe: 1
+    - Saturation_mouth: 1
+    - Saturation_pants: 1
+    - Saturation_right_arm: 1
+    - Saturation_right_eye: 1
+    - Saturation_right_leg: 1
+    - Saturation_right_shoe: 1
+    - Saturation_scarf: 1
+    - Saturation_skirt: 1
+    - Saturation_socks: 1
+    - Saturation_torso_skin: 1
+    - Saturation_unknown1: 1
+    - Saturation_unknown2: 1
+    - Saturation_unknown3: 1
+    - Saturation_unknown4: 1
+    - Saturation_upper_clothes: 0
+    - SmoothnessBias_coat: 0
+    - SmoothnessBias_dress: 0
+    - SmoothnessBias_face: 0
+    - SmoothnessBias_glasses: 0
+    - SmoothnessBias_gloves: 0
+    - SmoothnessBias_hair: 0
+    - SmoothnessBias_hat: 0
+    - SmoothnessBias_left_arm: 0
+    - SmoothnessBias_left_eye: 0
+    - SmoothnessBias_left_leg: 0
+    - SmoothnessBias_left_shoe: 0
+    - SmoothnessBias_mouth: 0
+    - SmoothnessBias_pants: 0
+    - SmoothnessBias_right_arm: 0
+    - SmoothnessBias_right_eye: 0
+    - SmoothnessBias_right_leg: 0
+    - SmoothnessBias_right_shoe: 0
+    - SmoothnessBias_scarf: 0
+    - SmoothnessBias_skirt: 0
+    - SmoothnessBias_socks: 0
+    - SmoothnessBias_torso_skin: 0
+    - SmoothnessBias_unknown1: 0
+    - SmoothnessBias_unknown2: 0
+    - SmoothnessBias_unknown3: 0
+    - SmoothnessBias_unknown4: 0
+    - SmoothnessBias_upper_clothes: 0
+    - SmoothnessScale_coat: 0
+    - SmoothnessScale_dress: 0
+    - SmoothnessScale_face: 0
+    - SmoothnessScale_glasses: 0
+    - SmoothnessScale_gloves: 0
+    - SmoothnessScale_hair: 0
+    - SmoothnessScale_hat: 0
+    - SmoothnessScale_left_arm: 0
+    - SmoothnessScale_left_eye: 0
+    - SmoothnessScale_left_leg: 0
+    - SmoothnessScale_left_shoe: 0
+    - SmoothnessScale_mouth: 0
+    - SmoothnessScale_pants: 0
+    - SmoothnessScale_right_arm: 0
+    - SmoothnessScale_right_eye: 0
+    - SmoothnessScale_right_leg: 0
+    - SmoothnessScale_right_shoe: 0
+    - SmoothnessScale_scarf: 0
+    - SmoothnessScale_skirt: 0
+    - SmoothnessScale_socks: 0
+    - SmoothnessScale_torso_skin: 0
+    - SmoothnessScale_unknown1: 0
+    - SmoothnessScale_unknown2: 0
+    - SmoothnessScale_unknown3: 0
+    - SmoothnessScale_unknown4: 0
+    - SmoothnessScale_upper_clothes: 0
+    - Value_coat: 1
+    - Value_dress: 1
+    - Value_face: 0
+    - Value_glasses: 1
+    - Value_gloves: 0
+    - Value_hair: 0
+    - Value_hat: 0
+    - Value_left_arm: 0
+    - Value_left_eye: 0
+    - Value_left_leg: 0
+    - Value_left_shoe: 1
+    - Value_mouth: 1
+    - Value_pants: 1
+    - Value_right_arm: 1
+    - Value_right_eye: 1
+    - Value_right_leg: 1
+    - Value_right_shoe: 1
+    - Value_scarf: 1
+    - Value_skirt: 1
+    - Value_socks: 1
+    - Value_torso_skin: 1
+    - Value_unknown1: 1
+    - Value_unknown2: 1
+    - Value_unknown3: 1
+    - Value_unknown4: 1
+    - Value_upper_clothes: 0
+    - _AcceptShadows: 0
+    - _Alpha: 1
+    - _Amount: 0.5
+    - _Anisotropy: 0.404
+    - _Anisotropy2: 0
+    - _Anisotropy3: 0
+    - _Blur: 0.000001
+    - _BumpScale: 1
+    - _BumpScale2: 1
+    - _BumpScale3: 1
+    - _BumpScale_Hair: 1
+    - _BumpScale_Hat: 0
+    - _BumpScale_arms: 0
+    - _BumpScale_eyes: 1
+    - _BumpScale_face: 0
+    - _BumpScale_gloves: 1
+    - _BumpScale_hair: 0.9
+    - _BumpScale_hat: 1
+    - _BumpScale_legs: 1
+    - _BumpScale_lower_clothes: 1
+    - _BumpScale_mouth: 1
+    - _BumpScale_shirt: 0
+    - _BumpScale_shoes: 0
+    - _BumpScale_socks: 0
+    - _BumpScale_torso_skin: 1
+    - _BumpScale_unknown1: 1
+    - _BumpScale_unknown2: 1
+    - _BumpScale_unknown3: 1
+    - _BumpScale_unknown4: 1
+    - _BumpScale_upper_clothes: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _Expend_: 0
+    - _Expend_0_Clothes: 0
+    - _Expend_0_Skin: 1
+    - _Expend_0_Unknown: 1
+    - _Expend_0_Unknown2: 0
+    - _Expend_1: 0
+    - _Expend_1_Arms: 0
+    - _Expend_1_Coat: 0
+    - _Expend_1_Dress: 0
+    - _Expend_1_Eyes: 0
+    - _Expend_1_Face: 1
+    - _Expend_1_Glasses: 0
+    - _Expend_1_Global: 0
+    - _Expend_1_Gloves: 0
+    - _Expend_1_Hair: 0
+    - _Expend_1_Hat: 0
+    - _Expend_1_Left_Arm: 0
+    - _Expend_1_Left_Eye: 0
+    - _Expend_1_Left_Leg: 0
+    - _Expend_1_Left_Shoe: 0
+    - _Expend_1_Legs: 0
+    - _Expend_1_Lower_Clothes: 0
+    - _Expend_1_Mouth: 0
+    - _Expend_1_Pants: 0
+    - _Expend_1_Right_Arm: 0
+    - _Expend_1_Right_Eye: 0
+    - _Expend_1_Right_Leg: 0
+    - _Expend_1_Right_Shoe: 0
+    - _Expend_1_Scarf: 0
+    - _Expend_1_Shoes: 0
+    - _Expend_1_Skirt: 0
+    - _Expend_1_Socks: 0
+    - _Expend_1_Torso_Skin: 0
+    - _Expend_1_Unknown1: 0
+    - _Expend_1_Unknown2: 0
+    - _Expend_1_Unknown3: 0
+    - _Expend_1_Unknown4: 0
+    - _Expend_1_Upper_Clothes: 0
+    - _Expend_1_unknown1: 0
+    - _Expend_1_unknown2: 0
+    - _Expend_1_unknown3: 0
+    - _Expend_1_unknown4: 0
+    - _Expend_2: 1
+    - _Expend_2_Coat: 1
+    - _Expend_2_Collor_Corection: 0
+    - _Expend_2_Dress: 1
+    - _Expend_2_Face: 1
+    - _Expend_2_Glasses: 0
+    - _Expend_2_Gloves: 1
+    - _Expend_2_Hair: 1
+    - _Expend_2_Hat: 1
+    - _Expend_2_Left_Arm: 1
+    - _Expend_2_Left_Eye: 1
+    - _Expend_2_Left_Leg: 1
+    - _Expend_2_Left_Shoe: 1
+    - _Expend_2_Mouth: 1
+    - _Expend_2_Pants: 0
+    - _Expend_2_Right_Arm: 0
+    - _Expend_2_Right_Eye: 0
+    - _Expend_2_Right_Leg: 0
+    - _Expend_2_Right_Shoe: 0
+    - _Expend_2_Scarf: 0
+    - _Expend_2_Skirt: 0
+    - _Expend_2_Socks: 0
+    - _Expend_2_Torso_Skin: 1
+    - _Expend_2_Unknown1: 1
+    - _Expend_2_Unknown2: 0
+    - _Expend_2_Unknown3: 0
+    - _Expend_2_Unknown4: 0
+    - _Expend_2_Upper_Clothes: 1
+    - _Expend_3: 1
+    - _Expend_3_Coat: 0
+    - _Expend_3_Dress: 0
+    - _Expend_3_Face: 1
+    - _Expend_3_Glasses: 0
+    - _Expend_3_Gloves: 0
+    - _Expend_3_Hair: 0
+    - _Expend_3_Hat: 0
+    - _Expend_3_Left_Arm: 1
+    - _Expend_3_Left_Eye: 0
+    - _Expend_3_Left_Leg: 0
+    - _Expend_3_Left_Shoe: 0
+    - _Expend_3_Mouth: 0
+    - _Expend_3_Pants: 0
+    - _Expend_3_Right_Arm: 0
+    - _Expend_3_Right_Eye: 0
+    - _Expend_3_Right_Leg: 0
+    - _Expend_3_Right_Shoe: 0
+    - _Expend_3_Scarf: 0
+    - _Expend_3_Skirt: 0
+    - _Expend_3_Socks: 0
+    - _Expend_3_Torso_Skin: 0
+    - _Expend_3_Unknown1: 0
+    - _Expend_3_Unknown2: 0
+    - _Expend_3_Unknown3: 0
+    - _Expend_3_Unknown4: 0
+    - _Expend_3_Upper_Clothes: 0
+    - _Expend_Stop: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0
+    - _GlossyReflections: 1
+    - _Hide_hat: 0
+    - _MS: 0
+    - _Metallic: 0.527
+    - _MetallicBias: 0
+    - _MetallicBias2: 0
+    - _MetallicBias3: 0
+    - _MetallicBias_Hair: 0
+    - _MetallicBias_Hat: 0
+    - _MetallicBias_arms: 0
+    - _MetallicBias_eyes: 0
+    - _MetallicBias_face: 0
+    - _MetallicBias_gloves: 0
+    - _MetallicBias_hair: 0
+    - _MetallicBias_hat: 0
+    - _MetallicBias_legs: 0.28
+    - _MetallicBias_lower_clothes: 0
+    - _MetallicBias_mouth: 0
+    - _MetallicBias_shirt: 0
+    - _MetallicBias_shoes: 0
+    - _MetallicBias_socks: 0
+    - _MetallicBias_torso_skin: 0.1
+    - _MetallicBias_unknown1: 0
+    - _MetallicBias_unknown2: 0
+    - _MetallicBias_unknown3: 0
+    - _MetallicBias_unknown4: 0
+    - _MetallicBias_upper_clothes: 0.32
+    - _MetallicScale: 1
+    - _MetallicScale2: 1
+    - _MetallicScale3: 1
+    - _MetallicScale_Hair: 0
+    - _MetallicScale_Hat: 0
+    - _MetallicScale_arms: 0
+    - _MetallicScale_eyes: 0
+    - _MetallicScale_face: 0
+    - _MetallicScale_gloves: 0
+    - _MetallicScale_hair: 0
+    - _MetallicScale_hat: 0
+    - _MetallicScale_legs: 0.33
+    - _MetallicScale_lower_clothes: 0
+    - _MetallicScale_mouth: 0
+    - _MetallicScale_shirt: 0
+    - _MetallicScale_shoes: 0
+    - _MetallicScale_socks: 0
+    - _MetallicScale_torso_skin: 0.05
+    - _MetallicScale_unknown1: 0
+    - _MetallicScale_unknown2: 0
+    - _MetallicScale_unknown3: 0
+    - _MetallicScale_unknown4: 0
+    - _MetallicScale_upper_clothes: 0
+    - _Metalness: 0.533
+    - _Metalness2: 0
+    - _Metalness3: 0
+    - _Mode: 0
+    - _NM: 0
+    - _OcclusionStrength: 1
+    - _Optimized: 0
+    - _Parallax: 0.02
+    - _Roughness: 0.179
+    - _Roughness2: 0
+    - _Roughness3: 0
+    - _Sample_radius: 2.38
+    - _ShowArms: 0
+    - _ShowEyes: 0
+    - _ShowFace: 0
+    - _ShowGlobal: 1
+    - _ShowGloves: 0
+    - _ShowHair: 0
+    - _ShowHat: 0
+    - _ShowHatColor: 0
+    - _ShowLegs: 1
+    - _ShowLower_Clothes: 0
+    - _ShowMouth: 0
+    - _ShowShirt: 0
+    - _ShowShoes: 0
+    - _ShowSocks: 0
+    - _ShowTorso_Skin: 0
+    - _ShowUpper_Clothes: 0
+    - _Showunknown1: 0
+    - _Showunknown2: 0
+    - _Showunknown3: 0
+    - _Showunknown4: 0
+    - _SmoothnessBias: 0
+    - _SmoothnessBias2: 0
+    - _SmoothnessBias3: 0
+    - _SmoothnessBias_Hair: 0
+    - _SmoothnessBias_Hat: 0
+    - _SmoothnessBias_arms: 0
+    - _SmoothnessBias_eyes: 0
+    - _SmoothnessBias_face: 0
+    - _SmoothnessBias_gloves: 0
+    - _SmoothnessBias_hair: 0
+    - _SmoothnessBias_hat: 0
+    - _SmoothnessBias_legs: 0
+    - _SmoothnessBias_lower_clothes: 0
+    - _SmoothnessBias_mouth: 0
+    - _SmoothnessBias_shirt: 0
+    - _SmoothnessBias_shoes: 0
+    - _SmoothnessBias_socks: 0
+    - _SmoothnessBias_torso_skin: 0
+    - _SmoothnessBias_unknown1: 0
+    - _SmoothnessBias_unknown2: 0
+    - _SmoothnessBias_unknown3: 0
+    - _SmoothnessBias_unknown4: 0
+    - _SmoothnessBias_upper_clothes: 0
+    - _SmoothnessScale: 1
+    - _SmoothnessScale2: 1
+    - _SmoothnessScale3: 1
+    - _SmoothnessScale_Hair: 0
+    - _SmoothnessScale_Hat: 0
+    - _SmoothnessScale_arms: 0
+    - _SmoothnessScale_eyes: 0
+    - _SmoothnessScale_face: 0
+    - _SmoothnessScale_gloves: 0
+    - _SmoothnessScale_hair: 0
+    - _SmoothnessScale_hat: 0
+    - _SmoothnessScale_legs: 0
+    - _SmoothnessScale_lower_clothes: 0
+    - _SmoothnessScale_mouth: 0
+    - _SmoothnessScale_shirt: 0
+    - _SmoothnessScale_shoes: 0
+    - _SmoothnessScale_socks: 0
+    - _SmoothnessScale_torso_skin: 0
+    - _SmoothnessScale_unknown1: 0
+    - _SmoothnessScale_unknown2: 0
+    - _SmoothnessScale_unknown3: 0
+    - _SmoothnessScale_unknown4: 0
+    - _SmoothnessScale_upper_clothes: 0.71
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - Color_coat: {r: 1, g: 1, b: 1, a: 1}
+    - Color_dress: {r: 1, g: 1, b: 1, a: 1}
+    - Color_face: {r: 1, g: 1, b: 1, a: 1}
+    - Color_glasses: {r: 1, g: 1, b: 1, a: 1}
+    - Color_gloves: {r: 1, g: 1, b: 1, a: 1}
+    - Color_hair: {r: 1, g: 1, b: 1, a: 1}
+    - Color_hat: {r: 0.7075472, g: 0.3504361, b: 0.3504361, a: 1}
+    - Color_left_arm: {r: 1, g: 1, b: 1, a: 1}
+    - Color_left_eye: {r: 1, g: 1, b: 1, a: 1}
+    - Color_left_leg: {r: 1, g: 1, b: 1, a: 1}
+    - Color_left_shoe: {r: 1, g: 1, b: 1, a: 1}
+    - Color_mouth: {r: 1, g: 0.7028302, b: 0.7028302, a: 1}
+    - Color_pants: {r: 1, g: 1, b: 1, a: 1}
+    - Color_right_arm: {r: 1, g: 1, b: 1, a: 1}
+    - Color_right_eye: {r: 1, g: 1, b: 1, a: 1}
+    - Color_right_leg: {r: 1, g: 1, b: 1, a: 1}
+    - Color_right_shoe: {r: 1, g: 1, b: 1, a: 1}
+    - Color_scarf: {r: 1, g: 1, b: 1, a: 1}
+    - Color_skirt: {r: 1, g: 1, b: 1, a: 1}
+    - Color_socks: {r: 1, g: 1, b: 1, a: 1}
+    - Color_torso_skin: {r: 1, g: 1, b: 1, a: 1}
+    - Color_unknown1: {r: 1, g: 1, b: 1, a: 1}
+    - Color_unknown2: {r: 1, g: 1, b: 1, a: 1}
+    - Color_unknown3: {r: 1, g: 1, b: 1, a: 1}
+    - Color_unknown4: {r: 1, g: 1, b: 1, a: 1}
+    - Color_upper_clothes: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_coat: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_dress: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_face: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_glasses: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_gloves: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_hair: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_hat: {r: 51.78, g: 4.45, b: 31.11, a: 1}
+    - HSV_left_arm: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_left_eye: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_left_leg: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_left_shoe: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_mouth: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_pants: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_right_arm: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_right_eye: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_right_leg: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_right_shoe: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_scarf: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_skirt: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_socks: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_torso_skin: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_unknown1: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_unknown2: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_unknown3: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_unknown4: {r: 1, g: 1, b: 1, a: 1}
+    - HSV_upper_clothes: {r: 1, g: 1, b: 1, a: 1}
+    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AlbedoColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _AlbedoColor3: {r: 1, g: 1, b: 1, a: 1}
+    - _BrighterCol: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color2: {r: 1, g: 1, b: 1, a: 1}
+    - _Color3: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_Hair: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_Hat: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_arms: {r: 0.9058824, g: 0.7372549, b: 0.6431373, a: 1}
+    - _Color_eyes: {r: 0.97254497, g: 1, b: 0.93773586, a: 1}
+    - _Color_face: {r: 0.8018868, g: 0.6149643, b: 0.51063544, a: 1}
+    - _Color_gloves: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_hair: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_hat: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_legs: {r: 0.9056604, g: 0.7375884, b: 0.64421505, a: 1}
+    - _Color_lower_clothes: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_mouth: {r: 1, g: 0, b: 0, a: 1}
+    - _Color_shirt: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_shoes: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_socks: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_torso_skin: {r: 0.9058824, g: 0.7372549, b: 0.6431373, a: 1}
+    - _Color_unknown1: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_unknown2: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_unknown3: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_unknown4: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_upper_clothes: {r: 1, g: 1, b: 1, a: 1}
+    - _DarkerCol: {r: 0.4, g: 0.4, b: 0.4, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FresnelColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _FresnelColor3: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_arms: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_eyes: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_face: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_gloves: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_hair: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_hat: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_legs: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_lower_clothes: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_mouth: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_shoes: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_socks: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_torso_skin: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_unknown1: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_unknown2: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_unknown3: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_unknown4: {r: 1, g: 1, b: 1, a: 1}
+    - _HSV_upper_clothes: {r: 1, g: 1, b: 1, a: 1}
+    - _MiddleCol: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  m_BuildTextureStacks: []
