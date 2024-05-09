@@ -16,7 +16,7 @@ public class QuoteManager : MonoBehaviour
         "If we cannot get our stats up by noon on Sunday we're all at half rations!!", "Our filing system needs to be fixed NOW. NOW NOW NOW.",
         "What does Hoffman say about being overworked?!", "Does anyone know how to pilot a ship?!", "Why do I always have to pick up for low producers...",
         "120 hours worked last week, I'm falling behind...", "I never needed a break, I could keep going.", "The Institute can count on me!",
-        "The low producers around Mr. Hoffman are not doing it right!", "Work! Work!! Must get done!!", "Tell me what to do!!"
+        "The low producers around Mr. Hoffman are not doing it right!", "Work! Work!! Must get done!!", "Tell me what to do!!",
         "Nothing more than a toothbrush for the low producers."};
 
     public string[] SadBoiQuotes = {"Why haven't they come back...", "Why is the Institute programming failing me...",
