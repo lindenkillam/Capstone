@@ -29,18 +29,42 @@ public class CheckChild : MonoBehaviour
 
     public void CleansingTexts()
     {
-        StartCoroutine(FadeCanvasGroup()); 
+        StartCoroutine(FadeCanvasGroups()); 
     }
 
-    IEnumerator FadeCanvasGroup()
+    IEnumerator FadeCanvasGroups()
     {
-        Transform randomChild = transform.GetChild(Random.Range(0, transform.childCount));
+        if (transform.childCount < 2)
+        {
+            Transform onlyChild = transform.GetChild(0);
+            StartCoroutine(FadeAndDestroy(onlyChild)); 
+        }
 
-        CanvasGroup canvasGroup = randomChild.GetComponent<CanvasGroup>();
+        if (transform.childCount < 1)
+        {
+            Debug.LogWarning("Not enough children to select.");
+            yield break;
+        }
 
-        TextMeshProUGUI textMeshProUGUI = randomChild.GetComponent<TextMeshProUGUI>();
+        int firstIndex = Random.Range(0, transform.childCount);
+        int secondIndex;
+        do
+        {
+            secondIndex = Random.Range(0, transform.childCount);
+        } while (secondIndex == firstIndex);
 
-        ParticleSystem ps = textMeshProUGUI.transform.GetComponentInChildren<ParticleSystem>();
+        Transform firstChild = transform.GetChild(firstIndex);
+        Transform secondChild = transform.GetChild(secondIndex);
+
+        StartCoroutine(FadeAndDestroy(firstChild));
+        StartCoroutine(FadeAndDestroy(secondChild));
+    }
+
+    IEnumerator FadeAndDestroy(Transform child)
+    {
+        CanvasGroup canvasGroup = child.GetComponent<CanvasGroup>();
+        TextMeshProUGUI textMeshProUGUI = child.GetComponent<TextMeshProUGUI>();
+        ParticleSystem ps = textMeshProUGUI?.transform.GetComponentInChildren<ParticleSystem>();
 
         if (canvasGroup != null)
         {
@@ -48,7 +72,8 @@ public class CheckChild : MonoBehaviour
             float startAlpha = 1f;
             float targetAlpha = 0f;
 
-            ps.Play(); 
+            //play the particle system if it's not null
+            ps?.Play();
 
             while (elapsedTime < fadeDuration)
             {
@@ -60,8 +85,11 @@ public class CheckChild : MonoBehaviour
             canvasGroup.alpha = targetAlpha;
 
             yield return new WaitForSeconds(0.5f);
-            Destroy(randomChild.gameObject);
+            Destroy(child.gameObject);
+        }
+        else
+        {
+            Debug.LogWarning("The child does not have a CanvasGroup component.");
         }
     }
-
 }

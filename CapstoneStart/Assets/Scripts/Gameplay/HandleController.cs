@@ -64,17 +64,13 @@ public class HandleController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Space) && isHit && !playingAnim && isRotatingForward) 
         {
-            Debug.Log("isHit = " + isHit); 
-            //PLEASE HIT?????????
             isHitCount += 1;
-            Debug.Log("Hit once!");
             deviceSound.clip = clips[1];
             deviceSound.Play();
             SetRandomHitZonePosition();
             if (isHitCount == 2)
             {
                 StopHandleRotation();
-                Debug.Log("PLEASE STOP!");
                 StartCoroutine(PlayAnimation(isHitCount));
             }
         }
@@ -83,12 +79,10 @@ public class HandleController : MonoBehaviour
         {
             if (!usedOnce)
             {
-                Debug.Log("Turn off!");
                 HDC.TurnOffHoffman();
             }
             else
             {
-                Debug.Log("RESET!");
                 resetEverything = true; 
                 HDC.TurnOffHoffman();
             }
@@ -100,6 +94,7 @@ public class HandleController : MonoBehaviour
         cleansingText.text = "";
         EO.canCheckBag = true;
         characterC.enabled = true;
+        displayRotationCount = 3; 
         ML.enabled = true;
         cg.alpha = 1f;
         isHitCount = 0;

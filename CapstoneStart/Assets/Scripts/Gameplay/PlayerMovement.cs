@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     private CharacterController controller;
     public float speed; 
     public float normalSpeed = 5f;
-    public float crunchSpeed = 2f;
+    public float squatSpeed = 2f;
     public float gravity = -9.81f;
 
     Vector3 velocity;
@@ -16,8 +16,9 @@ public class PlayerMovement : MonoBehaviour
     private bool isGrounded = true; 
 
     public float normalScale;
-    public float crunchScale;
+    public float squatScale;
     public float scaleLerpSpeed = 2f;
+    bool isSquatting; 
 
     void Start()
     {
@@ -40,8 +41,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.C))
         {
-            speed = crunchSpeed;
-            Crunch(crunchScale);
+            speed = squatSpeed;
+            Squat(squatScale);
         }
         else
         {
@@ -56,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
     }
 
-    void Crunch(float targetScale)
+    void Squat(float targetScale)
     {
         float currentScale = transform.localScale.y;
         float newYScale = Mathf.Lerp(currentScale, targetScale, scaleLerpSpeed * Time.deltaTime);

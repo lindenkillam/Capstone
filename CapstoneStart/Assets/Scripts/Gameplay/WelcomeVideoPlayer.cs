@@ -3,19 +3,20 @@ using UnityEngine.Video;
 
 public class WelcomeVideoPlayer : MonoBehaviour
 {
-    private VideoPlayer videoPlayer;
+    public VideoPlayer videoPlayer;
     //[SerializeField] Raycasting raycasting;
 
     public float maxDistance = 25f;
     public float minDistance = 5f;
     GameObject player;
-    AudioSource AS;
+    public AudioSource AS;
+    public Collider col;
+    bool on;
+    public Renderer rd;
 
     void Start()
     {
-        AS = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player");
-        videoPlayer = this.GetComponent<UnityEngine.Video.VideoPlayer>();
     }
 
     void Update()
@@ -37,13 +38,38 @@ public class WelcomeVideoPlayer : MonoBehaviour
             AS.volume = 0.5f;
         }
 
+        if (on)
+        {
+            rd.enabled = true;
+        }
+        else
+        {
+            rd.enabled = false;
+        }
     }
 
-    private void OnTriggerStay(Collider other)
+    public void PlayVideo()
+    {
+        if (!on)
+        {
+            videoPlayer.Play();
+            on = true;
+        }
+        else
+        {
+            videoPlayer.Stop();
+            on = false;
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
     { 
         if(!videoPlayer.isPlaying && other.gameObject.CompareTag("Player"))
         {
             videoPlayer.Play();
+            on = true; 
+            col.enabled = false; 
         }
     }
 }

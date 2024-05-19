@@ -42,6 +42,7 @@ TagManager:
   - TeleportForward
   - TeleportBack
   - Ashtray
+  - WelcomeTV
   layers:
   - Default
   - TransparentFX

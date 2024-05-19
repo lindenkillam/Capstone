@@ -10,6 +10,9 @@ public class PyramidController : MonoBehaviour
     public Renderer buttonRenderer;
     public Color emissionColor;
     public Light pyramidLight;
+    public GameObject panel, exitButton;
+    public PlayerMovement PM;
+    public MouseLook ML; 
 
     public void ChangeLightIntensity()
     {
@@ -37,8 +40,11 @@ public class PyramidController : MonoBehaviour
     public void InstantiateTextPrefab()
     {
         GameObject winText = Instantiate(textPrefab, canvas.transform, false);
+        PM.enabled = false;
+        ML.enabled = false;
         winText.GetComponent<TextMeshProUGUI>().text = "You escaped!!";
-
+        panel.SetActive(true); 
+        exitButton.SetActive(true); 
         RectTransform rectTransform = winText.GetComponent<RectTransform>();
         rectTransform.anchorMin = new Vector2(0.5f, 0.5f);
         rectTransform.anchorMax = new Vector2(0.5f, 0.5f);

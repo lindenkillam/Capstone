@@ -4,20 +4,21 @@ using UnityEngine.Video;
 
 public class LectureVideoPlayerScript : MonoBehaviour
 {
-    private VideoPlayer videoPlayer;
+    public VideoPlayer videoPlayer;
     public VideoManagerScript vm;
-    AudioSource AS; 
+    public AudioSource AS; 
     int lastLecture = -1, newLecture;
     public bool hasKey;
     public float maxDistance = 25f; 
     public float minDistance = 5f;
     GameObject player;
+    bool on;
+
+    public Renderer rd;
 
     void Awake()
     {
-        AS = GetComponent<AudioSource>(); 
         player = GameObject.FindGameObjectWithTag("Player"); 
-        videoPlayer = this.GetComponent<UnityEngine.Video.VideoPlayer>();
 
         newLecture = Random.Range(0, vm.lectures.Length);
         Debug.Log("New lecture chosen: Lecture #" + newLecture);
@@ -46,27 +47,44 @@ public class LectureVideoPlayerScript : MonoBehaviour
             AS.volume = 0.5f;
         }
 
+        if (on)
+        {
+            rd.enabled = true;
+        }
+        else
+        {
+            rd.enabled = false;
+        }
     }
 
     public void PlayVideo()
     {
+            if (!on)
+            {
+                newLecture = Random.Range(0, vm.lectures.Length);
 
-        newLecture = Random.Range(0, vm.lectures.Length);
+                if (newLecture == lastLecture)
+                    return;
 
-        if (newLecture == lastLecture)
-            return;
+                /*
+                do
+                {
+                    newLecture = Random.Range(0, vm.lectures.Length);
+                } while(newLecture == lastLecture);
+                */
 
-        /*
-        do
-        {
-            newLecture = Random.Range(0, vm.lectures.Length);
-        } while(newLecture == lastLecture);
-        */
+                Debug.Log("New lecture chosen: Lecture #" + newLecture);
+                lastLecture = newLecture;
 
-        Debug.Log("New lecture chosen: Lecture #" + newLecture);
-        lastLecture = newLecture;
-
-        videoPlayer.clip = vm.lectures[newLecture];
-        videoPlayer.Play();
+                videoPlayer.clip = vm.lectures[newLecture];
+                videoPlayer.Play();
+                on = true;
+            }
+            else
+            {
+                videoPlayer.Stop();
+                on = false;
+            }
+        
     }
 }

@@ -31,11 +31,14 @@ public class PlayerRaycast : MonoBehaviour
     public Animator pyramidAnim; 
     public int curSilverKeyNum, curGoldKeyNum, curAshtrayNum;
     public TextMeshProUGUI silverKeyNum, goldKeyNum, ashtrayNum;
+    public GameObject bagExclamation; 
     bool unlockAshtrayNum; 
     public bool altarCheck;
     public Door door1, door2;
     public bool atHoffman; 
     [SerializeField] private NoteManager noteManager;
+    public EventObserver EO;
+    bool newItemObtained; 
 
     void Start()
     {
@@ -47,7 +50,7 @@ public class PlayerRaycast : MonoBehaviour
     void Update()
     {
         silverKeyNum.text = ":" + curSilverKeyNum.ToString() + "/3";
-        goldKeyNum.text = ":" + curGoldKeyNum.ToString() + "/3";
+        goldKeyNum.text = ":" + curGoldKeyNum.ToString() + "/1";
         if (unlockAshtrayNum)
         {
             ashtrayNum.text = ":" + curAshtrayNum.ToString() + "/3";
@@ -64,6 +67,20 @@ public class PlayerRaycast : MonoBehaviour
         else
         {
             altarCheck = false;
+        }
+
+        if (newItemObtained)
+        {
+            bagExclamation.SetActive(true);
+        }
+        else
+        {
+            bagExclamation.SetActive(false);
+        }
+
+        if (EO.bagUIOn)
+        {
+            newItemObtained = false; 
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -95,6 +112,7 @@ public class PlayerRaycast : MonoBehaviour
             {
                 StartCoroutine(CollectKey(hit.transform.tag, hit.transform.gameObject));
                 onKeyObtainText.text = hit.transform.name.ToString() + " obtained";
+                newItemObtained = true; 
                 Destroy(hit.collider.gameObject);
             }
             else if (Physics.Raycast(ray, out hit, 10, specialWallLayer))
@@ -103,17 +121,31 @@ public class PlayerRaycast : MonoBehaviour
             }
             else if (Physics.Raycast(ray, out hit, 10, tvButtonLayer))
             {
-                LectureVideoPlayerScript videoScript = hit.collider.gameObject.GetComponent<LectureVideoPlayerScript>();
-                videoScript.PlayVideo();
+                StartCoroutine(CheckTV(hit.transform.tag, hit.transform.gameObject));
+            }
+        }
+    }
 
+    IEnumerator CheckTV(string tvTag, GameObject hitObject)
+    {
+        switch (tvTag)
+        {
+            case "TV":
+                LectureVideoPlayerScript videoScript = hitObject.GetComponent<Collider>().gameObject.GetComponent<LectureVideoPlayerScript>();
+                videoScript.PlayVideo();
                 if (!drawerChecked && videoScript.hasKey)
                 {
-                    drawerTrans = hit.transform.GetChild(0).gameObject.transform;
+                    drawerTrans = hitObject.transform.GetChild(0).gameObject.transform;
                     Vector3 targetPos = drawerTrans.localPosition + new Vector3(0, 0, -drawerMoveDistance);
                     StartCoroutine(MoveDrawer(targetPos));
                 }
-            }
+                break;
+            case "WelcomeTV":
+                WelcomeVideoPlayer welcScript = hitObject.GetComponent<Collider>().gameObject.GetComponent<WelcomeVideoPlayer>();
+                welcScript.PlayVideo(); 
+                break; 
         }
+        yield return null;
     }
 
     IEnumerator CollectKey(string keyTag, GameObject hitObject)

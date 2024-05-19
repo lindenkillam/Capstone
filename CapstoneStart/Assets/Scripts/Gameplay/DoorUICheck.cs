@@ -85,7 +85,8 @@ public class DoorUICheck : MonoBehaviour
                         }
 
                         fog.SetActive(true);
-
+                        PR.ashtrayNum.text = "";
+                        PR.ashtrayImage.SetActive(false); 
                         altarActivateInstruction = true;
                     }
                 }

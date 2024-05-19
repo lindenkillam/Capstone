@@ -14,7 +14,8 @@ public class EventObserver : MonoBehaviour
     public GameObject bagUI;
     public VideoPlayer[] videoPlayers;
     public VideoPlayer WelcomeTV;
-    public bool canCheckBag; 
+    public bool canCheckBag;
+    public bool bagUIOn; 
 
     void Start()
     {
@@ -44,10 +45,12 @@ public class EventObserver : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         bagUI.SetActive(true);
+        bagUIOn = true; 
     }
 
     void ResumeGame()
     {
+        bagUIOn = false; 
         bagUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -133,5 +136,15 @@ public class EventObserver : MonoBehaviour
                 new Vector2(Random.Range(240, 900), Random.Range(-600,550)); // Position on right side
         
         //Debug.Log(newTextPrefab.GetComponent<RectTransform>().anchoredPosition);
+    }
+
+    public void ExitGame()
+    {
+        #if UNITY_EDITOR
+            // Stop play mode in the Unity Editor
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
     }
 }
