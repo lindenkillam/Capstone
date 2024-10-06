@@ -43,6 +43,9 @@ TagManager:
   - TeleportBack
   - Ashtray
   - WelcomeTV
+  - ScarePanel
+  - SoundObject
+  - Text
   layers:
   - Default
   - TransparentFX
