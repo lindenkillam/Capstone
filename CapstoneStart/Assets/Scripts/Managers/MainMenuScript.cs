@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
@@ -21,22 +19,28 @@ public class MainMenuScript : MonoBehaviour
         Handwritten = 6,
         IAmTheCrayonMaster = 7,
         LatinaBold = 8,
-        Lilly = 9,
-        LTColoredPencil = 10,
-        Lyon = 11,
-        MyUnprofessionalHandwriting = 12,
-        OldSharpie = 13,
-        Quikhand = 14,
-        SummerPisces = 15,
-        WritingStuff = 16
+        LTColoredPencil = 9,
+        Lyon = 10,
+        MyUnprofessionalHandwriting = 11,
+        OldSharpie = 12,
+        Quikhand = 13,
+        WritingStuff = 14
     }
 
     FontType fontType;
+    RectTransform menuRectTransform;
+
+    void setMenuBoxSize(float menuX)
+    {
+        menuRectTransform.anchoredPosition = new Vector2(menuX, 170);
+        menuRectTransform.sizeDelta = new Vector2(0.35f*menuX, menuRectTransform.rect.height);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         fontType = FontType.MomsTypeWriter;
+        menuRectTransform = menuImage.GetComponent<RectTransform>();
     }
 
     // Update is called once per frame
@@ -61,38 +65,49 @@ public class MainMenuScript : MonoBehaviour
             switch(fontType)
             {
                 case FontType.AuthorizedSignature:
+                    setMenuBoxSize(200);
                     break;
                 case FontType.BadHandwriting:
+                    setMenuBoxSize(235);
                     break;
                 case FontType.Chalkboard:
+                    setMenuBoxSize(310);
                     break;
                 case FontType.HandOfTT:
+                    setMenuBoxSize(270);
                     break;
                 case FontType.handwrited:
+                    setMenuBoxSize(400);
                     break;
                 case FontType.Handwritten:
+                    setMenuBoxSize(220);
                     break;
                 case FontType.IAmTheCrayonMaster:
+                    setMenuBoxSize(300);
                     break;
                 case FontType.LatinaBold:
-                    break;
-                case FontType.Lilly:
+                    setMenuBoxSize(265);
                     break;
                 case FontType.LTColoredPencil:
+                    setMenuBoxSize(235);
                     break;
                 case FontType.Lyon:
+                    setMenuBoxSize(265);
                     break;
                 case FontType.MyUnprofessionalHandwriting:
+                    setMenuBoxSize(220);
                     break;
                 case FontType.OldSharpie:
+                    setMenuBoxSize(350);
                     break;
                 case FontType.Quikhand:
-                    break;
-                case FontType.SummerPisces:
+                    setMenuBoxSize(260);
                     break;
                 case FontType.WritingStuff:
+                    setMenuBoxSize(250);
                     break;
                 default:
+                    setMenuBoxSize(360);
                     break;
             }
         }  
