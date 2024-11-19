@@ -4,8 +4,9 @@ using TMPro;
 public class MainMenuScript : MonoBehaviour
 {
     public TMP_FontAsset[] menuFonts;
-    public GameObject weComeBackText, newGame,
-        loadGame, options, credits, menuImage;
+    public GameObject[] menuText;
+    public GameObject menuImage; /*weComeBackText, newGame,
+        loadGame, options, exitButton, menuImage;*/
     public bool fontsChanging;
 
     private enum FontType
@@ -33,7 +34,7 @@ public class MainMenuScript : MonoBehaviour
     void setMenuBoxSize(float menuX)
     {
         menuRectTransform.anchoredPosition = new Vector2(menuX, 170);
-        menuRectTransform.sizeDelta = new Vector2(0.35f*menuX, menuRectTransform.rect.height);
+        menuRectTransform.sizeDelta = new Vector2(0.35f*menuX, 100);
     }
 
     // Start is called before the first frame update
@@ -51,16 +52,11 @@ public class MainMenuScript : MonoBehaviour
             int fontInt = Random.Range(0, menuFonts.Length);
             fontType = (FontType)fontInt;
 
-            weComeBackText.GetComponent<TextMeshProUGUI>().font =
-                menuFonts[fontInt];
-            newGame.GetComponent<TextMeshProUGUI>().font =
-                menuFonts[fontInt];
-            loadGame.GetComponent<TextMeshProUGUI>().font =
-                menuFonts[fontInt];
-            options.GetComponent<TextMeshProUGUI>().font =
-                menuFonts[fontInt];
-            credits.GetComponent<TextMeshProUGUI>().font =
-                menuFonts[fontInt];
+            foreach (GameObject i in menuText)
+            {
+                i.GetComponent<TextMeshProUGUI>().font =
+                    menuFonts[fontInt];
+            }
             
             switch(fontType)
             {
