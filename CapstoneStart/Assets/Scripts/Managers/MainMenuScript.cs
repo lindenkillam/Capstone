@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -8,6 +9,9 @@ public class MainMenuScript : MonoBehaviour
     public GameObject menuImage; /*weComeBackText, newGame,
         loadGame, options, exitButton, menuImage;*/
     public bool fontsChanging;
+    public string newGameLevel;
+    private string levelToLoad;
+    //[SerializeField] private GameObject noSavedGameDialog = null;
 
     private enum FontType
     {
@@ -35,6 +39,31 @@ public class MainMenuScript : MonoBehaviour
     {
         menuRectTransform.anchoredPosition = new Vector2(menuX, 170);
         menuRectTransform.sizeDelta = new Vector2(0.35f*menuX, 100);
+    }
+
+    public void NewGameDialogYes()
+    {
+        SceneManager.LoadScene(newGameLevel);
+    }
+
+    /*
+    public void LoadGameDialogYes()
+    {
+        if (PlayerPrefs.HasKey("SavedLevel"))
+        {
+            levelToLoad = PlayerPrefs.GetString("SavedLevel");
+            SceneManager.LoadScene(levelToLoad);
+        }
+        else
+        {
+            noSavedGameDialog.SetActive(true);
+        }
+    }
+    */
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 
     // Start is called before the first frame update
