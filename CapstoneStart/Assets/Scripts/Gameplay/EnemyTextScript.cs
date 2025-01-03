@@ -15,9 +15,9 @@ public class EnemyTextScript : MonoBehaviour
         thisText = GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
     void Update()
     {
+        // Below code is how the text from enemy collisions fades over time.
         if(thisText.alpha > alphaMin)
         {
             thisText.color = thisText.color -

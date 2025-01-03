@@ -42,7 +42,7 @@ public class PyramidController : MonoBehaviour
         GameObject winText = Instantiate(textPrefab, canvas.transform, false);
         PM.enabled = false;
         ML.enabled = false;
-        winText.GetComponent<TextMeshProUGUI>().text = "You escaped!!";
+        winText.GetComponent<TextMeshProUGUI>().text = "I've escaped!!";
         panel.SetActive(true); 
         exitButton.SetActive(true); 
         RectTransform rectTransform = winText.GetComponent<RectTransform>();

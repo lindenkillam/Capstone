@@ -15,8 +15,8 @@ public class DoorUICheck : MonoBehaviour
 
     [Header("Text")]
     public TextMeshProUGUI interactionText, altarText;
-    public string requireCondText = "Door locked, search for clues in the surrounding area"; 
-    public string doorLockedText = "Door locked, requires key";
+    public string requireCondText = "It's locked. I might need to find something first..."; 
+    public string doorLockedText = "This door needs a key.";
     public string openDoorText = "E to open door";
 
     private Coroutine showTextCoroutine;
@@ -92,13 +92,13 @@ public class DoorUICheck : MonoBehaviour
                 }
                 else
                 {
-                    altarText.text = "You have unlocked the magical eyes <br>now you can see the hidden things";
+                    altarText.text = "LEVEL 6 UNLOCKED.<br>Ability unlocked: Now you can see hidden things.";
                 }
             }
             else
             {
                 Cursor.lockState = CursorLockMode.Locked;
-                altarText.text = "You need to get something first";
+                altarText.text = "I need to get something first...";
             }
         }
         else
